@@ -121,8 +121,8 @@ service cloud.firestore {
                'driveFileId', 'uploadedBy', 'byStaff', 'createdAt'])
           && str(request.resource.data.name, 200)
           && str(request.resource.data.mimeType, 120)
-          && request.resource.data.size is int
-          && request.resource.data.size <= 26214400
+          && request.resource.data['size'] is int
+          && request.resource.data['size'] <= 26214400
           && str(request.resource.data.driveFileId, 100)
           && request.resource.data.uploadedBy == myEmail()
           && request.resource.data.byStaff == isStaff()
