@@ -41,12 +41,15 @@ Drive, Gmail, Sheets) and YouTube.
 
 ## One-time setup
 
-### 1. Firebase project (owner: rocklane@rocklaneco.com)
+### 1. Firebase project
+
+> **Done Nov 6, 2026.** Project `rocklane-portal` (free Spark plan, under the rocklaneco.com organization), owned by
+> justin.reddick@rocklaneco.com. Staff: justin.reddick@rocklaneco.com. The steps below are kept for reference.
 
 1. Go to https://console.firebase.google.com while signed in as rocklane@rocklaneco.com. Create a project
    named `rocklane-portal`. Turn Google Analytics off. Stay on the free Spark plan.
 2. **Build → Authentication → Get started → Email/Password → Enable** (leave passwordless off).
-   - *Settings → Password policy:* require at least 10 characters, with lowercase, uppercase and numbers.
+   - *Settings → Password policy:* require at least 10 characters, with lowercase letters and numbers (enforced).
    - *Settings → User actions:* keep **Email enumeration protection** on.
    - *Settings → Authorized domains:* add `rocklaneco.com` and `www.rocklaneco.com`.
    - *Templates:* set the sender name to `Rocklane Co.` and the reply-to address to rocklane@rocklaneco.com.
@@ -63,7 +66,11 @@ Drive, Gmail, Sheets) and YouTube.
    "Browser key (auto created by Firebase)" → *Website restrictions*: add `https://rocklaneco.com/*` and
    `https://www.rocklaneco.com/*`.
 
-### 2. Apps Script (email + files), signed in as rocklane@rocklaneco.com
+### 2. Apps Script (email + files)
+
+> **Done Nov 6, 2026.** Project *Rocklane Portal Service* in justin.reddick@rocklaneco.com's Drive. It runs as Justin, so
+> emails are sent from justin.reddick@rocklaneco.com as "Rocklane Co.", with replies going to rocklane@rocklaneco.com.
+> The private Drive folder is *Rocklane Portal Files (private)*, and the log is the *Rocklane Website Requests* sheet.
 
 1. Go to https://script.google.com and click **New project**. Name it `Rocklane Portal Service`.
 2. Paste `apps-script/Code.gs` into `Code.gs`. Under *Project Settings*, check **Show "appsscript.json"**,
