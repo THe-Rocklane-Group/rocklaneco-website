@@ -1,0 +1,147 @@
+rules_version = '2';
+
+// Rocklane Co. customer portal — Firestore security rules.
+//
+// Approval is automatic and enforced here, not in the browser:
+//   * Anyone may create an account, but must verify their email address.
+//   * A verified customer can read a job only when staff have listed that
+//     customer's email on the job (jobs/{jobId}.customerEmails).
+//   * Project videos are readable only after staff mark the job paid.
+//   * Staff are the verified emails listed in /staff (managed in the console).
+// Deploy: Firebase console → Firestore → Rules → paste → Publish
+//         (or `firebase deploy --only firestore:rules` from this folder).
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() { return request.auth != null; }
+    function verified() {
+      return signedIn() && request.auth.token.email_verified == true;
+    }
+    function myEmail() { return request.auth.token.email.lower(); }
+    function isStaff() {
+      return verified()
+        && exists(/databases/$(database)/documents/staff/$(myEmail()));
+    }
+    function jobData(jobId) {
+      return get(/databases/$(database)/documents/jobs/$(jobId)).data;
+    }
+    function isCustomerOf(jobId) {
+      return verified() && myEmail() in jobData(jobId).customerEmails;
+    }
+    function str(v, max) { return v is string && v.size() <= max; }
+    function statuses() {
+      return ['estimate', 'approved', 'scheduled', 'in_progress',
+              'final_walkthrough', 'complete', 'on_hold'];
+    }
+    function validJob(d) {
+      return d.keys().hasOnly(['title', 'address', 'status', 'statusNote', 'paid',
+                               'customerEmails', 'createdAt', 'updatedAt', 'updatedBy'])
+        && str(d.title, 140) && d.title.size() > 0
+        && str(d.address, 200)
+        && d.status in statuses()
+        && str(d.statusNote, 500)
+        && d.paid is bool
+        && d.customerEmails is list && d.customerEmails.size() <= 20
+        && d.updatedAt == request.time
+        && d.updatedBy == myEmail();
+    }
+    function validProfile(d) {
+      return str(d.name, 100) && d.name.size() > 0
+        && str(d.phone, 40) && str(d.company, 120) && str(d.propertyAddress, 200);
+    }
+
+    // Staff list: one document per staff email (document ID = lowercase email).
+    // Created by the owner in the Firebase console only.
+    match /staff/{email} {
+      allow get: if verified() && email == myEmail();
+      allow list, write: if false;
+    }
+
+    // Customer profiles.
+    match /users/{uid} {
+      allow get: if (signedIn() && request.auth.uid == uid) || isStaff();
+      allow list: if isStaff();
+      allow create: if signedIn() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['name', 'email', 'phone', 'company',
+             'propertyAddress', 'createdAt', 'termsAcceptedAt'])
+        && request.resource.data.email == myEmail()
+        && validProfile(request.resource.data)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.termsAcceptedAt == request.time;
+      allow update: if signedIn() && request.auth.uid == uid
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['name', 'phone', 'company', 'propertyAddress'])
+        && validProfile(request.resource.data);
+      allow delete: if false;
+    }
+
+    match /jobs/{jobId} {
+      // Customers must query with where('customerEmails', 'array-contains', email).
+      allow read: if isStaff()
+        || (verified() && myEmail() in resource.data.customerEmails);
+      allow create: if isStaff() && validJob(request.resource.data)
+        && request.resource.data.createdAt == request.time;
+      allow update: if isStaff() && validJob(request.resource.data)
+        && request.resource.data.createdAt == resource.data.createdAt;
+      allow delete: if false; // keep job records; mark them complete instead
+
+      // Progress updates posted by staff.
+      match /updates/{id} {
+        allow read: if isStaff() || isCustomerOf(jobId);
+        allow create: if isStaff()
+          && request.resource.data.keys().hasOnly(['text', 'createdAt', 'author'])
+          && str(request.resource.data.text, 4000) && request.resource.data.text.size() > 0
+          && request.resource.data.createdAt == request.time
+          && request.resource.data.author == myEmail();
+        allow delete: if isStaff();
+        allow update: if false;
+      }
+
+      // Project videos (unlisted YouTube IDs). Visible once the job is paid.
+      match /media/{id} {
+        allow read: if isStaff()
+          || (isCustomerOf(jobId) && jobData(jobId).paid == true);
+        allow create: if isStaff()
+          && request.resource.data.keys().hasOnly(['title', 'youtubeId', 'createdAt'])
+          && str(request.resource.data.title, 140)
+          && request.resource.data.youtubeId is string
+          && request.resource.data.youtubeId.matches('^[A-Za-z0-9_-]{11}$')
+          && request.resource.data.createdAt == request.time;
+        allow delete: if isStaff();
+        allow update: if false;
+      }
+
+      // Photos and documents. The file itself lives in Rocklane's Google Drive
+      // (saved by the Apps Script); this is the index record.
+      match /files/{id} {
+        allow read: if isStaff() || isCustomerOf(jobId);
+        allow create: if (isStaff() || isCustomerOf(jobId))
+          && request.resource.data.keys().hasOnly(['name', 'size', 'mimeType',
+               'driveFileId', 'uploadedBy', 'byStaff', 'createdAt'])
+          && str(request.resource.data.name, 200)
+          && str(request.resource.data.mimeType, 120)
+          && request.resource.data.size is int
+          && request.resource.data.size <= 26214400
+          && str(request.resource.data.driveFileId, 100)
+          && request.resource.data.uploadedBy == myEmail()
+          && request.resource.data.byStaff == isStaff()
+          && request.resource.data.createdAt == request.time;
+        allow delete: if isStaff();
+        allow update: if false;
+      }
+    }
+
+    // Simple audit trail (sign-ins, uploads, downloads). Append-only.
+    match /activity/{id} {
+      allow create: if verified()
+        && request.resource.data.keys().hasOnly(['type', 'jobId', 'email', 'at'])
+        && str(request.resource.data.type, 40)
+        && str(request.resource.data.jobId, 60)
+        && request.resource.data.email == myEmail()
+        && request.resource.data.at == request.time;
+      allow read: if isStaff();
+      allow update, delete: if false;
+    }
+  }
+}
