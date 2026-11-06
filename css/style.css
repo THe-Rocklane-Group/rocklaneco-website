@@ -1,0 +1,187 @@
+/* Rocklane Co. website styles
+   Follows The Rocklane Group Brand Foundation v2 (Oct 29, 2026):
+   Shark Blue lead (~60%), Lizard Green accent (~20%), neutrals (~20%), Montserrat only. */
+:root {
+  --shark-blue: #1E5AA8;      /* locked brand value */
+  --shark-blue-deep: #17488a; /* hover state only */
+  --lizard-green: #A8CF3E;    /* Rocklane Co. division accent */
+  --charcoal: #4A4A4A;        /* body copy, secondary text */
+  --light-grey: #E8EAED;      /* backgrounds, rules */
+  --white: #FFFFFF;
+  --radius: 6px;
+  --max: 1160px;
+  --font: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--charcoal);
+  background: var(--white);
+  overflow-wrap: break-word;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--shark-blue); font-weight: 600; }
+a:hover { color: var(--shark-blue-deep); }
+strong { font-weight: 600; color: var(--charcoal); }
+
+/* Type scale (Brand Foundation 6.3) */
+h1, h2, h3 { margin: 0 0 .5em; color: var(--shark-blue); line-height: 1.15; }
+h1 { font-weight: 900; font-size: clamp(2.3rem, 5vw, 3.6rem); letter-spacing: -.01em; }  /* 42–64px */
+h2 { font-weight: 700; font-size: clamp(1.75rem, 3.2vw, 2.4rem); }                        /* 28–40px */
+h3 { font-weight: 700; font-size: 1.2rem; }                                               /* 18–22px */
+p { margin: 0 0 1em; }
+.eyebrow {
+  display: inline-block; font-weight: 500; font-size: 13px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--shark-blue); margin-bottom: 12px;
+  padding-bottom: 4px; border-bottom: 3px solid var(--lizard-green);
+}
+.lead { font-size: 1.15rem; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 12px; top: 12px; background: var(--white); padding: 8px 12px; z-index: 100; }
+
+/* Top bar */
+.topbar { background: var(--shark-blue); color: var(--white); font-size: 14px; font-weight: 500; }
+.topbar .wrap { display: flex; flex-wrap: wrap; gap: 4px 20px; justify-content: space-between; padding-top: 7px; padding-bottom: 7px; }
+.topbar a { color: var(--white); text-decoration: none; font-weight: 600; }
+.topbar a:hover { text-decoration: underline; }
+
+/* Header */
+.site-header { background: var(--white); border-bottom: 1px solid var(--light-grey); position: sticky; top: 0; z-index: 50; }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 18px; padding-bottom: 18px; }
+/* Approved Rocklane Co. primary lockup. Shown >200px wide (Brand Foundation 6.1); clear space kept by header padding. */
+.brand { display: block; flex-shrink: 0; }
+.brand img { height: 54px; width: auto; }
+.nav { display: flex; align-items: center; gap: 2px; }
+.nav a { white-space: nowrap; text-decoration: none; color: var(--charcoal); font-weight: 500; font-size: 15px; padding: 8px 11px; border-radius: var(--radius); }
+.nav a:hover { color: var(--shark-blue); background: var(--light-grey); }
+.nav a[aria-current="page"] { color: var(--shark-blue); box-shadow: inset 0 -3px 0 var(--lizard-green); border-radius: 0; }
+.nav .btn { margin-left: 8px; }
+.menu-toggle { display: none; background: var(--white); border: 1px solid var(--light-grey); border-radius: var(--radius); padding: 8px 14px; font: inherit; font-weight: 600; color: var(--shark-blue); cursor: pointer; }
+
+/* Buttons: Lizard Green with Charcoal text (4.8:1 contrast) */
+.btn {
+  display: inline-block; background: var(--lizard-green); color: var(--charcoal) !important;
+  font-weight: 600; font-size: 16px; text-decoration: none; padding: 13px 24px;
+  border-radius: var(--radius); border: 2px solid var(--lizard-green); cursor: pointer;
+}
+.btn:hover { background: #b9da5f; border-color: #b9da5f; }
+.btn-outline { background: transparent; color: var(--shark-blue) !important; border-color: var(--shark-blue); }
+.btn-outline:hover { background: var(--shark-blue); color: var(--white) !important; border-color: var(--shark-blue); }
+.on-blue .btn-outline { color: var(--white) !important; border-color: var(--white); }
+.on-blue .btn-outline:hover { background: var(--white); color: var(--shark-blue) !important; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Shark Blue fields */
+.on-blue { background: var(--shark-blue); color: var(--white); }
+.on-blue h1, .on-blue h2, .on-blue h3, .on-blue strong { color: var(--white); }
+.on-blue a:not(.btn) { color: var(--white); }
+.on-blue .eyebrow { color: var(--white); }
+.on-blue .lead, .on-blue p { color: #eef3fb; }
+
+/* Hero */
+.hero { padding: 64px 0; }
+.hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+.hero .tag { font-weight: 500; letter-spacing: 2px; text-transform: uppercase; font-size: 13px; margin: 0 0 18px; }
+.hero img { border-radius: var(--radius); border-bottom: 6px solid var(--lizard-green); width: 100%; }
+.proof { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 28px; padding: 0; list-style: none; }
+.proof li { border: 1px solid rgba(255,255,255,.45); border-radius: 999px; padding: 6px 14px; font-weight: 500; font-size: 14px; }
+
+/* Inner page header */
+.page-head { padding: 48px 0; }
+.page-head h1 { margin-bottom: .2em; }
+.page-head p { margin: 0; font-size: 1.1rem; max-width: 760px; }
+
+/* Sections */
+section { padding: 64px 0; }
+.grey { background: var(--light-grey); }
+.center { text-align: center; }
+.section-intro { max-width: 760px; margin: 0 auto 36px; text-align: center; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.split > img { border-radius: var(--radius); border-bottom: 6px solid var(--lizard-green); width: 100%; }
+.split > *, .hero .wrap > *, .contact-grid > *, .footer-grid > * { min-width: 0; }
+
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.cards.two { grid-template-columns: repeat(2, 1fr); }
+.cards.four { grid-template-columns: repeat(4, 1fr); }
+.card { background: var(--white); border: 1px solid var(--light-grey); border-top: 4px solid var(--lizard-green); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; }
+.card p:last-child { margin-bottom: 0; }
+.card .more { margin-top: auto; text-decoration: none; }
+.card .more::after { content: " \2192"; }
+
+.checks { list-style: none; padding: 0; margin: 0 0 1em; }
+.checks li { position: relative; padding-left: 32px; margin-bottom: 12px; }
+.checks li::before { content: ""; position: absolute; left: 0; top: .3em; width: 20px; height: 20px; border-radius: 50%; background: var(--lizard-green); }
+.checks li::after { content: ""; position: absolute; left: 7px; top: .48em; width: 5px; height: 10px; border: solid var(--charcoal); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+
+.stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+.stat b { display: block; font-weight: 900; font-size: 2.2rem; color: var(--shark-blue); line-height: 1.1; }
+.on-blue .stat b { color: var(--white); }
+.stat span { font-weight: 500; font-size: 14px; }
+
+.warranty { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.warranty div { background: var(--white); border-radius: var(--radius); padding: 24px; border-left: 6px solid var(--lizard-green); }
+.warranty b { display: block; font-weight: 900; font-size: 2.4rem; color: var(--shark-blue); line-height: 1; }
+
+.cities { columns: 3; list-style: none; padding: 0; margin: 0; }
+.cities li { padding: 4px 0; }
+
+.callout { border-radius: var(--radius); padding: 36px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
+.callout h2 { margin: 0; }
+.callout p { margin: 6px 0 0; }
+
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.info-list { list-style: none; padding: 0; margin: 0; }
+.info-list li { padding: 14px 0; border-bottom: 1px solid var(--light-grey); }
+.info-list small { display: block; font-weight: 500; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+.hours { width: 100%; border-collapse: collapse; }
+.hours td { padding: 10px 0; border-bottom: 1px solid var(--light-grey); }
+.hours td:last-child { text-align: right; font-weight: 600; }
+.map { width: 100%; height: 380px; border: 0; border-radius: var(--radius); }
+
+/* Footer */
+.site-footer { padding: 48px 0 24px; font-size: 15px; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; }
+.site-footer h3 { font-size: 1rem; }
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer li { margin-bottom: 6px; }
+.site-footer .tagline { font-weight: 700; font-size: 1.1rem; color: var(--white); border-bottom: 3px solid var(--lizard-green); display: inline-block; padding-bottom: 4px; }
+.legal { border-top: 1px solid rgba(255,255,255,.3); margin-top: 32px; padding-top: 18px; font-size: 13px; }
+
+.call-bar { display: none; }
+
+@media (max-width: 1100px) {
+  .menu-toggle { display: block; }
+  .nav { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--white); border-bottom: 1px solid var(--light-grey); flex-direction: column; align-items: stretch; padding: 8px 24px 18px; }
+  .nav.open { display: flex; }
+  .nav a { font-size: 16px; padding: 12px 8px; }
+  .nav a[aria-current="page"] { box-shadow: inset 4px 0 0 var(--lizard-green); }
+  .nav .btn { margin: 10px 0 0; text-align: center; }
+}
+@media (max-width: 900px) {
+  .hero .wrap, .split, .contact-grid, .footer-grid, .warranty { grid-template-columns: 1fr; }
+  .cards, .cards.two { grid-template-columns: 1fr; }
+  .cards.four, .stat-row { grid-template-columns: 1fr 1fr; }
+  .cities { columns: 2; }
+}
+@media (max-width: 640px) {
+  .brand img { height: 50px; }
+  .site-header .wrap { padding-top: 14px; padding-bottom: 14px; }
+  body { font-size: 16px; padding-bottom: 60px; }
+  .wrap { padding: 0 16px; }
+  .topbar .hide-sm { display: none; }
+  section, .hero { padding: 44px 0; }
+  .cards.four { grid-template-columns: 1fr; }
+  .call-bar { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 60; }
+  .call-bar a { flex: 1; text-align: center; padding: 16px 8px; font-weight: 600; text-decoration: none; }
+  .call-bar a:first-child { background: var(--lizard-green); color: var(--charcoal); }
+  .call-bar a:last-child { background: var(--shark-blue); color: var(--white); }
+}
