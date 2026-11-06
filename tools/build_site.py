@@ -51,7 +51,7 @@ SCHEMA = {
 }
 
 
-def page(path, title, desc, body, current):
+def page(path, title, desc, body, current, head="", scripts="", index=True):
     cur = ' aria-current="page"'
     nav = "\n".join('        <a href="%s"%s>%s</a>' % (h, cur if h == current else "", t)
                     for h, t in NAV)
@@ -64,7 +64,7 @@ def page(path, title, desc, body, current):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title}</title>
   <meta name="description" content="{desc}">
-  <link rel="canonical" href="{canonical}">
+  <link rel="canonical" href="{canonical}">{'' if index else chr(10) + '  <meta name="robots" content="noindex, nofollow">'}{head}
   <meta name="theme-color" content="#1E5AA8">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="apple-touch-icon" href="/images/icon-180.png">
@@ -87,7 +87,7 @@ def page(path, title, desc, body, current):
   <div class="topbar">
     <div class="wrap">
       <span>Owner-Operated. Indiana-Proven.<span class="hide-sm"> &nbsp;&middot;&nbsp; Since 1980</span></span>
-      <span><a href="tel:{TEL}">{PHONE}</a><span class="hide-sm"> &nbsp;|&nbsp; Mon&ndash;Fri 9 AM&ndash;4 PM ET</span></span>
+      <span><a href="tel:{TEL}">{PHONE}</a><span class="hide-sm"> &nbsp;|&nbsp; Mon&ndash;Fri 9 AM&ndash;4 PM ET</span> &nbsp;|&nbsp; <a href="/portal">Customer Login</a></span>
     </div>
   </div>
   <header class="site-header">
@@ -132,7 +132,7 @@ def page(path, title, desc, body, current):
           </ul>
         </div>
       </div>
-      <p class="legal">&copy; <span id="yr">2026</span> {LEGAL}, a Rocklane Group company. GAF, Master Elite and Golden Pledge are registered trademarks of GAF. &middot; <a href="/privacy-policy">Privacy</a></p>
+      <p class="legal">&copy; <span id="yr">2026</span> {LEGAL}, a Rocklane Group company. GAF, Master Elite and Golden Pledge are registered trademarks of GAF. &middot; <a href="/privacy-policy">Privacy</a> &middot; <a href="/portal-terms">Portal Terms</a> &middot; <a href="/portal">Customer Login</a></p>
     </div>
   </footer>
 
@@ -141,13 +141,7 @@ def page(path, title, desc, body, current):
     <a href="/contact">Request an Estimate</a>
   </div>
 
-  <script>
-    var t = document.querySelector('.menu-toggle'), n = document.getElementById('nav');
-    t.addEventListener('click', function () {{
-      var o = n.classList.toggle('open'); t.setAttribute('aria-expanded', o);
-    }});
-    document.getElementById('yr').textContent = new Date().getFullYear();
-  </script>
+  <script src="/js/site.js" defer></script>{scripts}
 </body>
 </html>
 """
@@ -496,33 +490,54 @@ CONTACT = f"""    <div class="page-head on-blue">
       <div class="wrap">
         <span class="eyebrow">Free estimates</span>
         <h1>Contact</h1>
-        <p>Call the office or email us to request an estimate or an inspection.</p>
+        <p>Call the office or send the form below to request an estimate or an inspection.</p>
       </div>
     </div>
 
     <section>
       <div class="wrap contact-grid">
         <div>
+          <h2>Request an estimate</h2>
+          <form id="f-estimate" class="form" hidden novalidate>
+            <div class="field"><label for="e-name">Name</label><input id="e-name" name="name" autocomplete="name" required maxlength="100"></div>
+            <div class="field-row">
+              <div class="field"><label for="e-email">Email</label><input id="e-email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
+              <div class="field"><label for="e-phone">Phone</label><input id="e-phone" name="phone" type="tel" autocomplete="tel" required maxlength="40"></div>
+            </div>
+            <div class="field"><label for="e-address">Property address</label><input id="e-address" name="address" autocomplete="street-address" required maxlength="200"></div>
+            <div class="field"><label for="e-project">Project</label>
+              <select id="e-project" name="project">
+                <option>Roof replacement</option><option>Roof repair</option><option>Roof inspection</option>
+                <option>Storm damage</option><option>Siding</option><option>Gutters</option>
+                <option>HOA or multi-building property</option><option>Other</option>
+              </select></div>
+            <div class="field"><label for="e-details">Details <span class="muted">(optional)</span></label><textarea id="e-details" name="details" rows="4" maxlength="3000"></textarea></div>
+            <div class="hp" aria-hidden="true"><label for="e-website">Leave this field empty</label><input id="e-website" name="website" tabindex="-1" autocomplete="off"></div>
+            <p class="fine">We use your information only to respond to this request. See our <a href="/privacy-policy">privacy policy</a>.</p>
+            <button class="btn" type="submit">Send Request</button>
+            <p id="estimate-msg" class="notice" role="status" hidden></p>
+          </form>
+          <div id="estimate-fallback">
+            <p>Email your name, the property address and a short description of the project, and we&rsquo;ll get back to you.</p>
+            <a class="btn btn-outline" href="mailto:{EMAIL}?subject=Estimate%20request&amp;body=Name%3A%0AProperty%20address%3A%0APhone%3A%0AProject%20(roof%2C%20siding%2C%20gutters%2C%20other)%3A%0ADetails%3A">Email an Estimate Request</a>
+          </div>
+        </div>
+        <div>
           <h2>Talk to our team</h2>
-          <p>The fastest way to reach us is by phone. You can also email your name, the property address and a short description of the project, and we&rsquo;ll get back to you.</p>
+          <p>The fastest way to reach us is by phone.</p>
           <ul class="info-list">
             <li><small>Office</small><a href="tel:{TEL}">{PHONE}</a></li>
             <li><small>Email</small><a href="mailto:{EMAIL}?subject=Estimate%20request">{EMAIL}</a></li>
             <li><small>Address</small>{ADDRESS.replace('<br>', ', ')}</li>
           </ul>
-          <div class="btn-row" style="margin-top:22px">
-            <a class="btn" href="tel:{TEL}">Call Now</a>
-            <a class="btn btn-outline" href="mailto:{EMAIL}?subject=Estimate%20request&amp;body=Name%3A%0AProperty%20address%3A%0APhone%3A%0AProject%20(roof%2C%20siding%2C%20gutters%2C%20other)%3A%0ADetails%3A">Email an Estimate Request</a>
-          </div>
-        </div>
-        <div>
-          <h2>Hours</h2>
+          <h3 style="margin-top:28px">Hours</h3>
           <table class="hours">
             <tr><td>Monday &ndash; Friday</td><td>9 AM &ndash; 4 PM ET</td></tr>
             <tr><td>Saturday</td><td>By appointment</td></tr>
             <tr><td>Sunday</td><td>Closed</td></tr>
           </table>
           <p style="margin-top:20px"><a href="{GBP}" rel="noopener">Directions on Google Maps</a></p>
+          <p>Current customers: <a href="/portal">sign in to the customer portal</a> to check your project.</p>
         </div>
       </div>
     </section>
@@ -538,14 +553,59 @@ CONTACT = f"""    <div class="page-head on-blue">
 PRIVACY = f"""    <div class="page-head on-blue">
       <div class="wrap">
         <h1>Privacy Policy</h1>
-        <p>{LEGAL}</p>
+        <p>{LEGAL} &middot; Updated November 6, 2026</p>
       </div>
     </div>
     <section>
-      <div class="wrap" style="max-width:820px">
-        <p>This website has no forms, accounts, advertising trackers or cookies of its own. When you call or email us, we use your information only to respond to you and to provide the estimates and services you request. We do not sell your personal information.</p>
-        <p>Our pages load the Montserrat typeface from Google Fonts, and the map on our contact page is provided by Google. Google may collect technical information under its own privacy policy.</p>
-        <p>Questions? Contact us at <a href="mailto:{EMAIL}">{EMAIL}</a> or <a href="tel:{TEL}">{PHONE}</a>.</p>
+      <div class="wrap prose">
+        <h2>What we collect</h2>
+        <ul>
+          <li><strong>Estimate requests.</strong> Your name, email, phone number, property address and the project details you send through our contact form, by phone or by email.</li>
+          <li><strong>Customer portal accounts.</strong> Your name, email, phone number, company or HOA name and property address, plus a password that is stored only in encrypted form by Google Firebase. We never see your password.</li>
+          <li><strong>Project files.</strong> Photos and documents you or our team upload to your project.</li>
+          <li><strong>Portal activity.</strong> A record of sign-ins, uploads and downloads, kept for security and to support you.</li>
+        </ul>
+        <h2>How we use it</h2>
+        <p>We use your information only to respond to you, prepare estimates, carry out and document your project, give you access to the customer portal, and keep the portal secure. We do not sell or rent your personal information, and we do not use advertising trackers.</p>
+        <h2>Who stores it</h2>
+        <p>Portal accounts and project records are stored with Google Firebase. Estimate requests, emails and project files are stored in our Google Workspace account. Project videos are hosted on YouTube as unlisted videos, shown in the portal only to the customers on that project. Our pages load the Montserrat typeface from Google Fonts, and the map on our contact page is provided by Google. Google may collect technical information under its own privacy policy.</p>
+        <h2>Cookies and storage</h2>
+        <p>The public website sets no cookies of its own. When you sign in to the customer portal, your browser stores a sign-in token so you stay signed in. Uncheck &ldquo;Keep me signed in&rdquo; on shared computers. The portal signs you out after 60 minutes without activity.</p>
+        <h2>How long we keep it</h2>
+        <p>We keep project records and files for as long as needed for your project, its warranty period and our legal and tax obligations. You may ask us to close your portal account at any time.</p>
+        <h2>Your choices</h2>
+        <p>To see, correct or delete your information, or to close your portal account, contact us at <a href="mailto:{EMAIL}">{EMAIL}</a> or <a href="tel:{TEL}">{PHONE}</a>.</p>
+      </div>
+    </section>"""
+
+
+TERMS = f"""    <div class="page-head on-blue">
+      <div class="wrap">
+        <h1>Customer Portal Terms of Use</h1>
+        <p>{LEGAL} &middot; Updated November 6, 2026</p>
+      </div>
+    </div>
+    <section>
+      <div class="wrap prose">
+        <p>The {SHORT} customer portal lets our customers follow their projects, share photos and documents with our team, and view project videos. By creating an account you agree to these terms.</p>
+        <h2>Your account</h2>
+        <ul>
+          <li>Accounts are for {SHORT} customers, property managers and board members with a project we are performing or have performed.</li>
+          <li>Keep your password private and don&rsquo;t share your account. Tell us right away at {PHONE} if you think someone else has used it.</li>
+          <li>We give access to a project only to the email addresses connected to it. We may change or remove access when a project&rsquo;s contacts change.</li>
+        </ul>
+        <h2>Files you upload</h2>
+        <ul>
+          <li>Upload only photos and documents related to your project that you have the right to share.</li>
+          <li>Files are visible to our team and to the other contacts on the same project.</li>
+          <li>Don&rsquo;t upload payment card numbers, Social Security numbers or other sensitive personal information.</li>
+        </ul>
+        <h2>Project information and videos</h2>
+        <p>Project status, updates and videos are provided for your convenience. Your signed contract, estimate and warranty documents govern your project. Project videos are for your use in connection with your property and may not be republished without our permission.</p>
+        <h2>Availability</h2>
+        <p>We work to keep the portal available but cannot guarantee it will always be. If you can&rsquo;t reach it, call the office at <a href="tel:{TEL}">{PHONE}</a>.</p>
+        <h2>Privacy</h2>
+        <p>Our <a href="/privacy-policy">privacy policy</a> explains what we collect and how we use it.</p>
       </div>
     </section>"""
 
@@ -558,6 +618,248 @@ NOTFOUND = """    <section>
           <a class="btn" href="/">Home</a>
           <a class="btn btn-outline" href="/roofing">Roofing</a>
           <a class="btn btn-outline" href="/contact">Contact</a>
+        </div>
+      </div>
+    </section>"""
+
+
+# ---------------------------------------------------------------- customer portal
+# The portal's logic lives in hand-written files in site/portal/ (config.js, common.js,
+# portal.js, staff.js). This script only writes the HTML around them.
+
+CSP = ("default-src 'self'; script-src 'self' https://www.gstatic.com; "
+       "connect-src 'self' https://*.googleapis.com https://script.google.com https://script.googleusercontent.com; "
+       "frame-src https://www.youtube-nocookie.com https://*.firebaseapp.com; "
+       "img-src 'self' data: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+       "font-src https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self'")
+PORTAL_HEAD = f'\n  <meta http-equiv="Content-Security-Policy" content="{CSP}">\n  <meta name="referrer" content="strict-origin-when-cross-origin">'
+
+SETUP_VIEW = """        <div class="view" id="v-setup" hidden>
+          <h2>Coming soon</h2>
+          <p>Our customer portal is being set up. In the meantime, call the office at <a href="tel:{TEL}">{PHONE}</a> for an update on your project.</p>
+        </div>""".format(TEL=TEL, PHONE=PHONE)
+
+ACCOUNT_BAR = """      <div class="acct" id="acct" hidden>
+        <span>Signed in as <strong id="acct-email"></strong></span>
+        <button type="button" class="link btn-signout">Sign out</button>
+      </div>"""
+
+PORTAL = f"""    <div class="page-head on-blue">
+      <div class="wrap">
+        <span class="eyebrow">Customer portal</span>
+        <h1>Your Project</h1>
+        <p>Check your project&rsquo;s status, share photos and documents with our team, and watch your project videos.</p>
+      </div>
+    </div>
+    <section class="portal">
+      <div class="wrap">
+{ACCOUNT_BAR}
+        <p id="portal-msg" class="notice" role="alert" hidden></p>
+{SETUP_VIEW}
+
+        <div class="view panel" id="v-auth" hidden>
+          <div class="tabs" role="tablist">
+            <button type="button" role="tab" data-tab="signin" aria-selected="true">Sign in</button>
+            <button type="button" role="tab" data-tab="signup" aria-selected="false">Create account</button>
+            <button type="button" role="tab" data-tab="reset" aria-selected="false">Forgot password</button>
+          </div>
+          <p id="auth-msg" class="notice" role="alert" hidden></p>
+
+          <form id="f-signin" class="form auth-form">
+            <h2>Sign in</h2>
+            <div class="field"><label for="si-email">Email</label><input id="si-email" name="email" type="email" autocomplete="username" required></div>
+            <div class="field"><label for="si-pass">Password</label><input id="si-pass" name="password" type="password" autocomplete="current-password" required></div>
+            <label class="check"><input type="checkbox" name="remember" checked> Keep me signed in on this device</label>
+            <button class="btn" type="submit">Sign In</button>
+          </form>
+
+          <form id="f-signup" class="form auth-form" hidden>
+            <h2>Create your account</h2>
+            <p class="fine">Use the email address you gave our office. Your project appears automatically once your email is verified and linked to your project.</p>
+            <div class="field"><label for="su-name">Full name</label><input id="su-name" name="name" autocomplete="name" required maxlength="100"></div>
+            <div class="field"><label for="su-company">Company, HOA or property name <span class="muted">(optional)</span></label><input id="su-company" name="company" autocomplete="organization" maxlength="120"></div>
+            <div class="field-row">
+              <div class="field"><label for="su-email">Email</label><input id="su-email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
+              <div class="field"><label for="su-phone">Phone</label><input id="su-phone" name="phone" type="tel" autocomplete="tel" required maxlength="40"></div>
+            </div>
+            <div class="field"><label for="su-address">Project property address</label><input id="su-address" name="address" autocomplete="street-address" required maxlength="200"></div>
+            <div class="field-row">
+              <div class="field"><label for="su-pass">Password</label><input id="su-pass" name="password" type="password" autocomplete="new-password" required minlength="10"><small>At least 10 characters, with letters and numbers.</small></div>
+              <div class="field"><label for="su-pass2">Confirm password</label><input id="su-pass2" name="password2" type="password" autocomplete="new-password" required minlength="10"></div>
+            </div>
+            <label class="check"><input type="checkbox" name="terms" required> I agree to the <a href="/portal-terms" target="_blank">portal terms</a> and <a href="/privacy-policy" target="_blank">privacy policy</a>.</label>
+            <button class="btn" type="submit">Create Account</button>
+          </form>
+
+          <form id="f-reset" class="form auth-form" hidden>
+            <h2>Reset your password</h2>
+            <div class="field"><label for="rs-email">Email</label><input id="rs-email" name="email" type="email" autocomplete="email" required></div>
+            <button class="btn" type="submit">Send Reset Link</button>
+          </form>
+        </div>
+
+        <div class="view panel" id="v-verify" hidden>
+          <h2>Confirm your email</h2>
+          <p>We sent a verification link to <strong id="verify-email"></strong>. Open it to finish setting up your account, then come back here. Check your spam folder if you don&rsquo;t see it.</p>
+          <p id="verify-msg" class="notice" role="status" hidden></p>
+          <div class="btn-row">
+            <button type="button" class="btn" id="btn-verified">I&rsquo;ve Confirmed My Email</button>
+            <button type="button" class="btn btn-outline" id="btn-resend">Send the Link Again</button>
+          </div>
+        </div>
+
+        <div class="view panel" id="v-pending" hidden>
+          <h2>We&rsquo;re connecting your project</h2>
+          <p>Your account is ready, but no project is linked to <strong id="pending-email"></strong> yet. Our office has been notified and will link your project within one business day. We&rsquo;ll email you when it&rsquo;s ready.</p>
+          <p>Need it sooner? Call <a href="tel:{TEL}">{PHONE}</a>, Monday&ndash;Friday 9 AM&ndash;4 PM ET.</p>
+        </div>
+
+        <div class="view" id="v-jobs" hidden>
+          <h2>Your projects</h2>
+          <div class="job-list" id="jobs-list"></div>
+        </div>
+
+        <div class="view" id="v-job" hidden>
+          <a href="#" id="job-back" class="back">All projects</a>
+          <h2 id="job-title"></h2>
+          <p class="muted" id="job-address"></p>
+          <div id="job-tracker"></div>
+          <p class="status-note" id="job-note" hidden></p>
+          <p class="fine" id="job-updated"></p>
+
+          <div class="portal-grid">
+            <div class="panel">
+              <h3>Project updates</h3>
+              <ul class="timeline" id="job-updates"></ul>
+            </div>
+            <div class="panel">
+              <h3>Photos &amp; documents</h3>
+              <ul class="files" id="job-files"></ul>
+              <form id="f-upload" class="form upload">
+                <label for="up-files">Add photos or documents</label>
+                <input id="up-files" type="file" multiple>
+                <small>Photos, PDF, Word or Excel &middot; up to 25 MB each</small>
+                <button class="btn" type="submit">Upload</button>
+                <p id="up-msg" class="notice" role="status" hidden></p>
+              </form>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>Project videos</h3>
+            <div class="videos" id="job-videos"></div>
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+STAFF = f"""    <div class="page-head on-blue">
+      <div class="wrap">
+        <span class="eyebrow">Staff only</span>
+        <h1>Portal Admin</h1>
+      </div>
+    </div>
+    <section class="portal">
+      <div class="wrap">
+{ACCOUNT_BAR}
+{SETUP_VIEW}
+        <div class="view panel" id="v-signin" hidden>
+          <form id="f-signin" class="form">
+            <h2>Staff sign in</h2>
+            <p class="fine">Use your @rocklaneco.com portal account. Staff sessions end after 30 minutes without activity or when the browser closes.</p>
+            <div class="field"><label for="st-email">Email</label><input id="st-email" name="email" type="email" autocomplete="username" required></div>
+            <div class="field"><label for="st-pass">Password</label><input id="st-pass" name="password" type="password" autocomplete="current-password" required></div>
+            <button class="btn" type="submit">Sign In</button>
+            <p id="signin-msg" class="notice" role="alert" hidden></p>
+          </form>
+        </div>
+        <div class="view panel" id="v-denied" hidden>
+          <h2>Staff access only</h2>
+          <p>This account isn&rsquo;t on the staff list, or its email isn&rsquo;t verified yet. Customers can use the <a href="/portal">customer portal</a>.</p>
+        </div>
+
+        <nav class="staff-tabs" aria-label="Admin sections" hidden>
+          <a href="#">Jobs</a><a href="#accounts">Customer accounts<span id="pending-count"></span></a><a href="#activity">Activity log</a><a href="#new">+ New job</a>
+        </nav>
+
+        <div class="view" id="v-jobs" hidden>
+          <div class="toolbar">
+            <input id="job-search" type="search" placeholder="Search jobs, addresses, emails" aria-label="Search jobs">
+            <select id="job-filter" aria-label="Filter by status"></select>
+          </div>
+          <div class="table-wrap"><table class="data">
+            <thead><tr><th>Job</th><th>Status</th><th>Paid</th><th>Customer emails</th><th>Updated</th></tr></thead>
+            <tbody id="jobs-body"></tbody>
+          </table></div>
+        </div>
+
+        <div class="view" id="v-job" hidden>
+          <a href="#" class="back">All jobs</a>
+          <h2 id="job-heading"></h2>
+          <p id="job-msg" class="notice" role="status" hidden></p>
+          <div class="portal-grid">
+            <form id="f-job" class="form panel">
+              <h3>Job details</h3>
+              <div class="field"><label for="j-title">Job name</label><input id="j-title" name="title" required maxlength="140" placeholder="e.g. Smith roof replacement"></div>
+              <div class="field"><label for="j-address">Property address</label><input id="j-address" name="address" maxlength="200"></div>
+              <div class="field"><label for="j-status">Status</label><select id="j-status" name="status"></select></div>
+              <div class="field"><label for="j-note">Status note for the customer <span class="muted">(optional)</span></label><textarea id="j-note" name="statusNote" rows="2" maxlength="500"></textarea></div>
+              <div class="field"><label for="j-emails">Customer emails <span class="muted">(one per line; these people get access)</span></label><textarea id="j-emails" name="emails" rows="3"></textarea></div>
+              <label class="check"><input type="checkbox" name="paid"> Paid in full (shows project videos to the customer)</label>
+              <label class="check"><input type="checkbox" name="notifyLinked" checked> Email customers about new access or a status change</label>
+              <button class="btn" type="submit">Save Job</button>
+            </form>
+            <div class="job-only">
+              <form id="f-update" class="form panel">
+                <h3>Post an update</h3>
+                <div class="field"><label for="u-text">Update for the customer</label><textarea id="u-text" name="text" rows="3" maxlength="4000" required></textarea></div>
+                <label class="check"><input type="checkbox" name="notify" checked> Email the customer</label>
+                <button class="btn" type="submit">Post Update</button>
+              </form>
+              <div class="panel"><h3>Updates</h3><ul class="timeline" id="s-updates"></ul></div>
+            </div>
+          </div>
+          <div class="portal-grid job-only">
+            <div class="panel">
+              <h3>Photos &amp; documents</h3>
+              <ul class="files" id="s-files"></ul>
+              <form id="f-s-upload" class="form upload">
+                <label for="s-up-files">Upload for the customer</label>
+                <input id="s-up-files" type="file" multiple>
+                <button class="btn" type="submit">Upload</button>
+              </form>
+            </div>
+            <div class="panel">
+              <h3>Project videos</h3>
+              <p class="fine">Upload to YouTube as <strong>Unlisted</strong>, then paste the link. Customers see videos only after the job is marked paid.</p>
+              <ul class="files" id="s-media"></ul>
+              <form id="f-media" class="form">
+                <div class="field"><label for="m-title">Title</label><input id="m-title" name="title" maxlength="140" placeholder="e.g. Final roof walkthrough"></div>
+                <div class="field"><label for="m-url">YouTube link</label><input id="m-url" name="url" required></div>
+                <label class="check"><input type="checkbox" name="notify" checked> Email the customer (if paid)</label>
+                <button class="btn" type="submit">Add Video</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="view" id="v-accounts" hidden>
+          <h2>Customer accounts</h2>
+          <p class="fine">Highlighted accounts aren&rsquo;t linked to a job yet. Choose their job to approve them; they&rsquo;re emailed automatically.</p>
+          <p id="accounts-msg" class="notice" role="status" hidden></p>
+          <div class="table-wrap"><table class="data">
+            <thead><tr><th>Name</th><th>Contact</th><th>Property</th><th>Created</th><th>Job access</th></tr></thead>
+            <tbody id="accounts-body"></tbody>
+          </table></div>
+        </div>
+
+        <div class="view" id="v-activity" hidden>
+          <h2>Activity log</h2>
+          <p class="fine">Most recent 200 events. Times are Eastern.</p>
+          <div class="table-wrap"><table class="data">
+            <thead><tr><th>When</th><th>Who</th><th>What</th><th>Job</th></tr></thead>
+            <tbody id="activity-body"></tbody>
+          </table></div>
         </div>
       </div>
     </section>"""
@@ -577,9 +879,18 @@ PAGES = [
     ("about.html", "/about", "About Rocklane Co. | Owner-Operated Since 1980",
      "Rocklane Company General Contractors LLC: owner-operated since 1980, GAF Master Elite, HAAG Certified Inspectors and IBHS FORTIFIED Roofing Contractors.", ABOUT, "/about"),
     ("contact.html", "/contact", "Contact Rocklane Co. | (317) 898-8696 | Indianapolis",
-     "Call (317) 898-8696 or email rocklane@rocklaneco.com for a roofing, siding or gutter estimate. 1690 S. Franklin Rd., Indianapolis. Mon-Fri 9-4 ET.", CONTACT, "/contact"),
+     "Call (317) 898-8696 or email rocklane@rocklaneco.com for a roofing, siding or gutter estimate. 1690 S. Franklin Rd., Indianapolis. Mon-Fri 9-4 ET.", CONTACT, "/contact",
+     dict(scripts='\n  <script type="module" src="/js/estimate.js"></script>')),
     ("privacy-policy.html", "/privacy-policy", "Privacy Policy | Rocklane Co.",
      "Privacy policy for the Rocklane Company General Contractors LLC website.", PRIVACY, None),
+    ("portal-terms.html", "/portal-terms", "Customer Portal Terms of Use | Rocklane Co.",
+     "Terms of use for the Rocklane Co. customer portal.", TERMS, None),
+    ("portal/index.html", "/portal", "Customer Portal | Rocklane Co.",
+     "Sign in to check your Rocklane Co. project status, share photos and documents, and view project videos.", PORTAL, None,
+     dict(head=PORTAL_HEAD, scripts='\n  <script type="module" src="/portal/portal.js"></script>', index=False)),
+    ("portal/staff.html", "/portal/staff", "Portal Admin | Rocklane Co.",
+     "Rocklane Co. staff portal.", STAFF, None,
+     dict(head=PORTAL_HEAD, scripts='\n  <script type="module" src="/portal/staff.js"></script>', index=False)),
     ("404.html", "/404", "Page Not Found | Rocklane Co.",
      "This page has moved. Visit Rocklane Co. for roofing, siding and gutters in central Indiana.", NOTFOUND, None),
 ]
@@ -602,9 +913,10 @@ names = {p[0].lower() for p in PAGES}
 for old in REDIRECTS:
     assert old.lower() + ".html" not in names, "redirect collides with page: " + old
 
-for fn, path, title, desc, body, cur in PAGES:
+for fn, path, title, desc, body, cur, *opts in PAGES:
+    os.makedirs(os.path.dirname(os.path.join(OUT, fn)), exist_ok=True)
     with open(os.path.join(OUT, fn), "w") as f:
-        f.write(page(path, title, desc, body, cur))
+        f.write(page(path, title, desc, body, cur, **(opts[0] if opts else {})))
 
 for old, new in REDIRECTS.items():
     with open(os.path.join(OUT, old + ".html"), "w") as f:
@@ -618,14 +930,68 @@ for old, new in REDIRECTS.items():
 """)
 
 with open(os.path.join(OUT, "sitemap.xml"), "w") as f:
-    urls = "".join(f"  <url><loc>{DOMAIN}{p}</loc></url>\n" for _, p, *_ in PAGES if p != "/404")
+    urls = "".join(f"  <url><loc>{DOMAIN}{p}</loc></url>\n" for _, p, *_ in PAGES if p not in ("/404", "/portal", "/portal/staff"))
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + "</urlset>\n")
 
 with open(os.path.join(OUT, "robots.txt"), "w") as f:
-    f.write(f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n")
+    f.write(f"User-agent: *\nAllow: /\nDisallow: /portal/\n\nSitemap: {DOMAIN}/sitemap.xml\n")
 
 with open(os.path.join(OUT, "CNAME"), "w") as f:
     f.write("rocklaneco.com\n")
+
+os.makedirs(os.path.join(OUT, "js"), exist_ok=True)
+with open(os.path.join(OUT, "js", "site.js"), "w") as f:
+    f.write("""// Menu toggle and footer year (kept out of the HTML so pages work with a strict CSP).
+(function () {
+  var t = document.querySelector('.menu-toggle'), n = document.getElementById('nav');
+  if (t && n) t.addEventListener('click', function () {
+    var o = n.classList.toggle('open'); t.setAttribute('aria-expanded', o);
+  });
+  var y = document.getElementById('yr');
+  if (y) y.textContent = new Date().getFullYear();
+})();
+""")
+
+with open(os.path.join(OUT, "js", "estimate.js"), "w") as f:
+    f.write("""// Contact-page estimate form. Sends to the Rocklane Apps Script, which emails the office.
+import { SCRIPT_URL } from "/portal/config.js";
+
+const form = document.getElementById("f-estimate");
+const msg = document.getElementById("estimate-msg");
+const started = Date.now();
+
+if (/^https:\\/\\/script\\.google\\.com\\/macros\\/s\\/[\\w-]+\\/exec$/.test(SCRIPT_URL)) {
+  form.hidden = false;
+  document.getElementById("estimate-fallback").hidden = true;
+}
+
+function show(text, kind) { msg.hidden = false; msg.className = "notice notice-" + kind; msg.textContent = text; }
+
+form.addEventListener("submit", async (ev) => {
+  ev.preventDefault();
+  if (!form.reportValidity()) return;
+  const data = Object.fromEntries(new FormData(form));
+  data.action = "estimate";
+  data.elapsedMs = Date.now() - started;
+  const btn = form.querySelector("button");
+  btn.disabled = true;
+  try {
+    const res = await fetch(SCRIPT_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(data), redirect: "follow" });
+    const out = await res.json();
+    if (!out.ok) throw new Error(out.error);
+    form.reset();
+    show("Thank you. We received your request and emailed you a confirmation. Our team will contact you within one business day.", "ok");
+  } catch (e) {
+    show((e && e.message) || "We couldn't send your request. Please call (317) 898-8696.", "error");
+  }
+  btn.disabled = false;
+});
+""")
+
+with open(os.path.join(OUT, "_config.yml"), "w") as f:
+    f.write("# GitHub Pages: publish only the website, not the tooling kept in this repository.\n"
+            "exclude: [tools, firebase, apps-script, README.md]\n")
 
 print("built", len(PAGES), "pages and", len(REDIRECTS), "redirects into", os.path.normpath(OUT))
