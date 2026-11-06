@@ -133,7 +133,7 @@
   <div class="topbar">
     <div class="wrap">
       <span>Owner-Operated. Indiana-Proven.<span class="hide-sm"> &nbsp;&middot;&nbsp; Since 1980</span></span>
-      <span><a href="tel:+13178988696">(317) 898-8696</a><span class="hide-sm"> &nbsp;|&nbsp; Mon&ndash;Fri 9 AM&ndash;4 PM ET</span></span>
+      <span><a href="tel:+13178988696">(317) 898-8696</a><span class="hide-sm"> &nbsp;|&nbsp; Mon&ndash;Fri 9 AM&ndash;4 PM ET</span> &nbsp;|&nbsp; <a href="/portal">Customer Login</a></span>
     </div>
   </div>
   <header class="site-header">
@@ -159,14 +159,28 @@
     <div class="page-head on-blue">
       <div class="wrap">
         <h1>Privacy Policy</h1>
-        <p>Rocklane Company General Contractors LLC</p>
+        <p>Rocklane Company General Contractors LLC &middot; Updated November 6, 2026</p>
       </div>
     </div>
     <section>
-      <div class="wrap" style="max-width:820px">
-        <p>This website has no forms, accounts, advertising trackers or cookies of its own. When you call or email us, we use your information only to respond to you and to provide the estimates and services you request. We do not sell your personal information.</p>
-        <p>Our pages load the Montserrat typeface from Google Fonts, and the map on our contact page is provided by Google. Google may collect technical information under its own privacy policy.</p>
-        <p>Questions? Contact us at <a href="mailto:rocklane@rocklaneco.com">rocklane@rocklaneco.com</a> or <a href="tel:+13178988696">(317) 898-8696</a>.</p>
+      <div class="wrap prose">
+        <h2>What we collect</h2>
+        <ul>
+          <li><strong>Estimate requests.</strong> Your name, email, phone number, property address and the project details you send through our contact form, by phone or by email.</li>
+          <li><strong>Customer portal accounts.</strong> Your name, email, phone number, company or HOA name and property address, plus a password that is stored only in encrypted form by Google Firebase. We never see your password.</li>
+          <li><strong>Project files.</strong> Photos and documents you or our team upload to your project.</li>
+          <li><strong>Portal activity.</strong> A record of sign-ins, uploads and downloads, kept for security and to support you.</li>
+        </ul>
+        <h2>How we use it</h2>
+        <p>We use your information only to respond to you, prepare estimates, carry out and document your project, give you access to the customer portal, and keep the portal secure. We do not sell or rent your personal information, and we do not use advertising trackers.</p>
+        <h2>Who stores it</h2>
+        <p>Portal accounts and project records are stored with Google Firebase. Estimate requests, emails and project files are stored in our Google Workspace account. Project videos are hosted on YouTube as unlisted videos, shown in the portal only to the customers on that project. Our pages load the Montserrat typeface from Google Fonts, and the map on our contact page is provided by Google. Google may collect technical information under its own privacy policy.</p>
+        <h2>Cookies and storage</h2>
+        <p>The public website sets no cookies of its own. When you sign in to the customer portal, your browser stores a sign-in token so you stay signed in. Uncheck &ldquo;Keep me signed in&rdquo; on shared computers. The portal signs you out after 60 minutes without activity.</p>
+        <h2>How long we keep it</h2>
+        <p>We keep project records and files for as long as needed for your project, its warranty period and our legal and tax obligations. You may ask us to close your portal account at any time.</p>
+        <h2>Your choices</h2>
+        <p>To see, correct or delete your information, or to close your portal account, contact us at <a href="mailto:rocklane@rocklaneco.com">rocklane@rocklaneco.com</a> or <a href="tel:+13178988696">(317) 898-8696</a>.</p>
       </div>
     </section>
   </main>
@@ -195,7 +209,7 @@
           </ul>
         </div>
       </div>
-      <p class="legal">&copy; <span id="yr">2026</span> Rocklane Company General Contractors LLC, a Rocklane Group company. GAF, Master Elite and Golden Pledge are registered trademarks of GAF. &middot; <a href="/privacy-policy">Privacy</a></p>
+      <p class="legal">&copy; <span id="yr">2026</span> Rocklane Company General Contractors LLC, a Rocklane Group company. GAF, Master Elite and Golden Pledge are registered trademarks of GAF. &middot; <a href="/privacy-policy">Privacy</a> &middot; <a href="/portal-terms">Portal Terms</a> &middot; <a href="/portal">Customer Login</a></p>
     </div>
   </footer>
 
@@ -204,12 +218,6 @@
     <a href="/contact">Request an Estimate</a>
   </div>
 
-  <script>
-    var t = document.querySelector('.menu-toggle'), n = document.getElementById('nav');
-    t.addEventListener('click', function () {
-      var o = n.classList.toggle('open'); t.setAttribute('aria-expanded', o);
-    });
-    document.getElementById('yr').textContent = new Date().getFullYear();
-  </script>
+  <script src="/js/site.js" defer></script>
 </body>
 </html>

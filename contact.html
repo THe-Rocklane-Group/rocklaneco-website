@@ -133,7 +133,7 @@
   <div class="topbar">
     <div class="wrap">
       <span>Owner-Operated. Indiana-Proven.<span class="hide-sm"> &nbsp;&middot;&nbsp; Since 1980</span></span>
-      <span><a href="tel:+13178988696">(317) 898-8696</a><span class="hide-sm"> &nbsp;|&nbsp; Mon&ndash;Fri 9 AM&ndash;4 PM ET</span></span>
+      <span><a href="tel:+13178988696">(317) 898-8696</a><span class="hide-sm"> &nbsp;|&nbsp; Mon&ndash;Fri 9 AM&ndash;4 PM ET</span> &nbsp;|&nbsp; <a href="/portal">Customer Login</a></span>
     </div>
   </div>
   <header class="site-header">
@@ -160,33 +160,54 @@
       <div class="wrap">
         <span class="eyebrow">Free estimates</span>
         <h1>Contact</h1>
-        <p>Call the office or email us to request an estimate or an inspection.</p>
+        <p>Call the office or send the form below to request an estimate or an inspection.</p>
       </div>
     </div>
 
     <section>
       <div class="wrap contact-grid">
         <div>
+          <h2>Request an estimate</h2>
+          <form id="f-estimate" class="form" hidden novalidate>
+            <div class="field"><label for="e-name">Name</label><input id="e-name" name="name" autocomplete="name" required maxlength="100"></div>
+            <div class="field-row">
+              <div class="field"><label for="e-email">Email</label><input id="e-email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
+              <div class="field"><label for="e-phone">Phone</label><input id="e-phone" name="phone" type="tel" autocomplete="tel" required maxlength="40"></div>
+            </div>
+            <div class="field"><label for="e-address">Property address</label><input id="e-address" name="address" autocomplete="street-address" required maxlength="200"></div>
+            <div class="field"><label for="e-project">Project</label>
+              <select id="e-project" name="project">
+                <option>Roof replacement</option><option>Roof repair</option><option>Roof inspection</option>
+                <option>Storm damage</option><option>Siding</option><option>Gutters</option>
+                <option>HOA or multi-building property</option><option>Other</option>
+              </select></div>
+            <div class="field"><label for="e-details">Details <span class="muted">(optional)</span></label><textarea id="e-details" name="details" rows="4" maxlength="3000"></textarea></div>
+            <div class="hp" aria-hidden="true"><label for="e-website">Leave this field empty</label><input id="e-website" name="website" tabindex="-1" autocomplete="off"></div>
+            <p class="fine">We use your information only to respond to this request. See our <a href="/privacy-policy">privacy policy</a>.</p>
+            <button class="btn" type="submit">Send Request</button>
+            <p id="estimate-msg" class="notice" role="status" hidden></p>
+          </form>
+          <div id="estimate-fallback">
+            <p>Email your name, the property address and a short description of the project, and we&rsquo;ll get back to you.</p>
+            <a class="btn btn-outline" href="mailto:rocklane@rocklaneco.com?subject=Estimate%20request&amp;body=Name%3A%0AProperty%20address%3A%0APhone%3A%0AProject%20(roof%2C%20siding%2C%20gutters%2C%20other)%3A%0ADetails%3A">Email an Estimate Request</a>
+          </div>
+        </div>
+        <div>
           <h2>Talk to our team</h2>
-          <p>The fastest way to reach us is by phone. You can also email your name, the property address and a short description of the project, and we&rsquo;ll get back to you.</p>
+          <p>The fastest way to reach us is by phone.</p>
           <ul class="info-list">
             <li><small>Office</small><a href="tel:+13178988696">(317) 898-8696</a></li>
             <li><small>Email</small><a href="mailto:rocklane@rocklaneco.com?subject=Estimate%20request">rocklane@rocklaneco.com</a></li>
             <li><small>Address</small>1690 S. Franklin Rd., Indianapolis, IN 46239</li>
           </ul>
-          <div class="btn-row" style="margin-top:22px">
-            <a class="btn" href="tel:+13178988696">Call Now</a>
-            <a class="btn btn-outline" href="mailto:rocklane@rocklaneco.com?subject=Estimate%20request&amp;body=Name%3A%0AProperty%20address%3A%0APhone%3A%0AProject%20(roof%2C%20siding%2C%20gutters%2C%20other)%3A%0ADetails%3A">Email an Estimate Request</a>
-          </div>
-        </div>
-        <div>
-          <h2>Hours</h2>
+          <h3 style="margin-top:28px">Hours</h3>
           <table class="hours">
             <tr><td>Monday &ndash; Friday</td><td>9 AM &ndash; 4 PM ET</td></tr>
             <tr><td>Saturday</td><td>By appointment</td></tr>
             <tr><td>Sunday</td><td>Closed</td></tr>
           </table>
           <p style="margin-top:20px"><a href="https://www.google.com/maps?cid=1030444210742474565" rel="noopener">Directions on Google Maps</a></p>
+          <p>Current customers: <a href="/portal">sign in to the customer portal</a> to check your project.</p>
         </div>
       </div>
     </section>
@@ -223,7 +244,7 @@
           </ul>
         </div>
       </div>
-      <p class="legal">&copy; <span id="yr">2026</span> Rocklane Company General Contractors LLC, a Rocklane Group company. GAF, Master Elite and Golden Pledge are registered trademarks of GAF. &middot; <a href="/privacy-policy">Privacy</a></p>
+      <p class="legal">&copy; <span id="yr">2026</span> Rocklane Company General Contractors LLC, a Rocklane Group company. GAF, Master Elite and Golden Pledge are registered trademarks of GAF. &middot; <a href="/privacy-policy">Privacy</a> &middot; <a href="/portal-terms">Portal Terms</a> &middot; <a href="/portal">Customer Login</a></p>
     </div>
   </footer>
 
@@ -232,12 +253,7 @@
     <a href="/contact">Request an Estimate</a>
   </div>
 
-  <script>
-    var t = document.querySelector('.menu-toggle'), n = document.getElementById('nav');
-    t.addEventListener('click', function () {
-      var o = n.classList.toggle('open'); t.setAttribute('aria-expanded', o);
-    });
-    document.getElementById('yr').textContent = new Date().getFullYear();
-  </script>
+  <script src="/js/site.js" defer></script>
+  <script type="module" src="/js/estimate.js"></script>
 </body>
 </html>
