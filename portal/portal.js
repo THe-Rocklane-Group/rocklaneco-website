@@ -58,8 +58,8 @@ function initAuthForms() {
     ev.preventDefault();
     const f = ev.target;
     say($("#auth-msg"), "");
-    if (f.password.value.length < 10 || !/[A-Za-z]/.test(f.password.value) || !/\d/.test(f.password.value))
-      return say($("#auth-msg"), "Please use at least 10 characters, including letters and numbers.", "error");
+    if (f.password.value.length < 10 || !/[a-z]/.test(f.password.value) || !/\d/.test(f.password.value))
+      return say($("#auth-msg"), "Please use at least 10 characters, including lowercase letters and numbers.", "error");
     if (f.password.value !== f.password2.value)
       return say($("#auth-msg"), "The two passwords don't match.", "error");
     if (!f.terms.checked)
