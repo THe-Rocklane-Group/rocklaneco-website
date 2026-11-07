@@ -110,3 +110,18 @@ That keeps the same URL.
   Script and Drive.
 - Add a DMARC record for rocklaneco.com (email deliverability and anti-spoofing).
 - Back up monthly: File → Download the *Rocklane Website Requests* sheet. Drive keeps the files.
+
+## Partner logos (`images/brands/`)
+
+Downloaded Nov 6, 2026 from each brand's own site. Use them unaltered (no recoloring, filters, cropping or redrawing), on a light background, and only next to the claim they support.
+
+| File | Source | Rules |
+|---|---|---|
+| `variform-logo.svg` | plygem.com/wp-content/uploads/shared/2024/04/Variform_Logo.svg (official Variform page) | Identifies the vinyl siding Rocklane Co. installs. Keep the full "VARIFORM by Ply Gem" lockup, full color, clear space = height of the "V", at least ~72 px wide. Never imply Rocklane is Variform-certified or preferred. Master files and guide: variform.com/brandassets. |
+| `james-hardie-logo.svg` | jameshardie.com header logo (James Hardie's Contentful CDN) | Identifies the fiber cement siding Rocklane Co. installs. James Hardie publishes no contractor license; get a James Hardie rep's OK before relying on it long term. Never show ALLIANCE tier badges or say "preferred/elite" unless Rocklane holds that tier. |
+| `versico-logo.png` | versico.com header logo | Commercial section only, next to text naming Rocklane Commercial Contractors LLC (Versico Authorized Contractor). Confirm the listing in Versico's Finder before publishing. Never next to Rocklane Co. residential claims. |
+
+Not included, and why:
+- **GAF** (logo, Master Elite badge, System Plus / Silver Pledge / Golden Pledge logos): GAF allows only files from the GAF Partner Portal (gafportal.gaf.com, Document Library > GAF Marketing Documents; Contractor ID 1003357). Never copy them from gaf.com or Google. Trademark line: "GAF, Golden Pledge, Master Elite, Silver Pledge and System Plus are either registered trademarks or trademarks of BMIC LLC in the United States and/or other countries." Master Elite badge must be smaller than the Rocklane logo (Rocklane logo at least 2x).
+- **HAAG**: the Haag Certified Inspector badge is personal. Show it only under the owner's name and HCI number (e.g. an owner bio), current-year badge only, downloaded by each owner from haageducation.com. Never use it, or wording like "our company has HCI certified inspectors", to promote the company.
+- **IBHS FORTIFIED**: logo use requires the company's signed FORTIFIED Roofing Contractor Agreement and a FORTIFIED Provider Directory listing. Add only after confirming both.

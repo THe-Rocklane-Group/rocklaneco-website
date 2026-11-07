@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Page Not Found | Rocklane Co.</title>
   <meta name="description" content="This page has moved. Visit Rocklane Co. for roofing, siding and gutters in central Indiana.">
-  <link rel="canonical" href="https://rocklaneco.com/404">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#1E5AA8">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="apple-touch-icon" href="/images/icon-180.png">
@@ -14,11 +14,43 @@
   <meta property="og:title" content="Page Not Found | Rocklane Co.">
   <meta property="og:description" content="This page has moved. Visit Rocklane Co. for roofing, siding and gutters in central Indiana.">
   <meta property="og:url" content="https://rocklaneco.com/404">
-  <meta property="og:image" content="https://rocklaneco.com/images/home.jpg">
+  <meta property="og:image" content="https://rocklaneco.com/images/photos/carmel-townhomes-aerial-1200.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="/css/style.css">
+  <style>
+.nf4 { position: relative; isolation: isolate; overflow: hidden; display: grid; align-items: center;
+  min-height: calc(100vh - 118px); min-height: calc(100svh - 118px); padding: clamp(56px, 8vw, 112px) 0; }
+.nf4-code { position: absolute; z-index: -1; right: -.04em; bottom: -.18em; font-weight: 900; line-height: .8;
+  font-size: clamp(11rem, 34vw, 30rem); letter-spacing: -.06em; color: transparent;
+  -webkit-text-stroke: 2px rgba(255,255,255,.22); pointer-events: none; user-select: none; }
+.nf4-in { display: grid; gap: clamp(40px, 6vw, 96px); align-items: center; }
+.nf4-logo { display: block; width: fit-content; max-width: 100%; background: var(--white); padding: 22px 24px; margin-bottom: clamp(28px, 4vw, 44px); box-shadow: var(--shadow-lg); }
+.nf4-logo img { display: block; width: 240px; max-width: 100%; height: auto; }
+.nf4 h1 { font-size: clamp(2.4rem, 5.6vw, 4.4rem); max-width: 14ch; margin-bottom: .35em; }
+.nf4-lede { font-size: clamp(1.05rem, 1.6vw, 1.25rem); max-width: 34rem; margin: 0 0 1.8em; }
+.nf4-call { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; }
+.nf4-call .fine { margin: 0; font-size: .9rem; }
+.nf4-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.nf4-links a { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; gap: 18px;
+  min-height: 76px; padding: 14px 20px; border: 1px solid rgba(255,255,255,.55); text-decoration: none;
+  transition: background-color .2s var(--ease), border-color .2s var(--ease); }
+.nf4-links .ico { background: rgba(255,255,255,.12); color: var(--green); }
+.nf4-links strong { display: block; font-size: 1.12rem; line-height: 1.2; }
+.nf4-links small { display: block; font-size: .9rem; line-height: 1.45; margin-top: 3px; }
+.nf4-links .go { font-size: 20px; transition: transform .2s var(--ease); }
+.nf4-links a:hover { background-color: var(--white); border-color: var(--white); }
+.nf4-links a:hover strong, .nf4-links a:hover small, .nf4-links a:hover .go { color: var(--blue); }
+.nf4-links a:hover .ico { background: var(--blue); color: var(--white); }
+.nf4-links a:hover .go { transform: translateX(4px); }
+@media (min-width: 1024px) { .nf4-in { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); } }
+@media (max-width: 479px) {
+  .nf4-links a { grid-template-columns: 40px minmax(0, 1fr) auto; gap: 14px; padding: 12px 14px; }
+  .nf4-links .ico { width: 40px; height: 40px; font-size: 19px; }
+}
+@media print { .nf4 { min-height: 0; } .nf4-code { display: none; } }
+  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -28,7 +60,7 @@
   "slogan": "Built to Outlast the Warranty.",
   "foundingDate": "1980",
   "url": "https://rocklaneco.com/",
-  "image": "https://rocklaneco.com/images/home.jpg",
+  "image": "https://rocklaneco.com/images/photos/carmel-townhomes-aerial-1200.jpg",
   "logo": "https://rocklaneco.com/images/rocklane-co-logo.jpg",
   "telephone": "+1-317-898-8696",
   "email": "rocklane@rocklaneco.com",
@@ -130,77 +162,108 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <div class="topbar">
+  <div class="util on-blue">
     <div class="wrap">
-      <span>Owner-Operated. Indiana-Proven.<span class="hide-sm"> &nbsp;&middot;&nbsp; Since 1980</span></span>
-      <span><a href="tel:+13178988696">(317) 898-8696</a><span class="hide-sm"> &nbsp;|&nbsp; Mon&ndash;Fri 9 AM&ndash;4 PM ET</span> &nbsp;|&nbsp; <a href="/portal">Customer Login</a></span>
+      <div class="util-l">
+        <a href="tel:+13178988696"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>(317) 898-8696</a>
+        <span class="util-hrs"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Mon&ndash;Fri 9 AM&ndash;4 PM ET &middot; Saturday by appointment</span>
+      </div>
+      <div class="util-r">
+        <span class="util-gaf"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="6.5"/><path d="M8.2 13.6 7 22l5-3 5 3-1.2-8.4"/></svg>GAF Master Elite&reg; roofing contractor</span>
+        <a href="/portal/"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Customer Login</span></a>
+      </div>
     </div>
   </div>
   <header class="site-header">
     <div class="wrap">
-      <!-- Approved Rocklane Co. primary lockup (Nov 4, 2026 kit). Do not stretch, recolor or add effects. -->
-      <a class="brand" href="/">
-        <img src="/images/rocklane-co-logo.jpg" width="560" height="135" alt="Rocklane Co. General Contractors LLC">
-      </a>
-      <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+      <!-- Approved Rocklane Co. primary lockup. Do not stretch, crop, recolor or add effects. -->
+      <a class="brand" href="/"><img src="/images/rocklane-co-logo.jpg" width="560" height="135" alt="Rocklane Co. General Contractors LLC, home"></a>
       <nav class="nav" id="nav" aria-label="Main">
-        <a href="/roofing">Roofing</a>
-        <a href="/siding">Siding</a>
-        <a href="/gutters">Gutters</a>
-        <a href="/property-managers">HOA &amp; Property Managers</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-        <a class="btn" href="tel:+13178988696">Call (317) 898-8696</a>
+        <ul>
+          <li><a href="/roofing">Roofing</a></li>
+          <li><a href="/siding">Siding</a></li>
+          <li><a href="/gutters">Gutters</a></li>
+          <li><a href="/commercial">Commercial</a></li>
+          <li><a href="/property-managers">HOA &amp; Property Managers</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
       </nav>
+      <div class="hdr-cta">
+        <a class="hdr-ph" href="tel:+13178988696" aria-label="Call (317) 898-8696"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span>(317) 898-8696</span></a>
+        <a class="btn btn-sm" href="/contact">Request an Estimate</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></svg><span>Menu</span></button>
+      </div>
     </div>
   </header>
 
   <main id="main">
-    <section>
-      <div class="wrap center">
-        <h1>Page not found</h1>
-        <p class="section-intro">That page has moved. Try one of these:</p>
-        <div class="btn-row" style="justify-content:center">
-          <a class="btn" href="/">Home</a>
-          <a class="btn btn-outline" href="/roofing">Roofing</a>
-          <a class="btn btn-outline" href="/contact">Contact</a>
+    <section class="nf4 on-blue" aria-labelledby="nf-h">
+      <span class="nf4-code" aria-hidden="true">404</span>
+      <div class="wrap nf4-in">
+        <div>
+          <!-- Approved Rocklane Co. primary lockup on a white card. Do not stretch, crop, recolor or add effects. -->
+          <div class="nf4-logo"><img src="/images/rocklane-co-logo.jpg" width="560" height="135" alt="Rocklane Co. General Contractors LLC"></div>
+          <span class="eyebrow">Error 404</span>
+          <h1 id="nf-h">This page has moved.</h1>
+          <p class="nf4-lede">The address may be from our old website. Pick where you were headed, or call the office and we&rsquo;ll point you the right way.</p>
+          <div class="nf4-call">
+            <a class="btn" href="tel:+13178988696"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>(317) 898-8696</a>
+            <p class="fine">Mon&ndash;Fri 9 AM&ndash;4 PM ET &middot; Saturday by appointment</p>
+          </div>
         </div>
+        <nav aria-label="Popular pages">
+          <ul class="nf4-links">
+            <li><a href="/roofing"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9v12h14V9"/><path d="M10 21v-6h4v6"/></svg></span><span><strong>Roofing</strong><small>Asphalt shingle replacement, repair and storm-damage inspection</small></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+            <li><a href="/siding"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></span><span><strong>Siding</strong><small>James Hardie&reg; fiber cement and Variform vinyl siding</small></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+            <li><a href="/gutters"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.7 17.7 8.4a8 8 0 1 1-11.3 0z"/></svg></span><span><strong>Gutters</strong><small>Seamless gutters cut on site, guards, repair and cleaning</small></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+            <li><a href="/commercial"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg></span><span><strong>Commercial</strong><small>Gutters, siding and metal wall panels for warehouses and commercial buildings</small></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+            <li><a href="/contact"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span><span><strong>Contact</strong><small>Request an Estimate or send the office a note</small></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+          </ul>
+          <p class="fine" style="margin:18px 0 0"><a href="/">Back to the Rocklane Co. home page</a></p>
+        </nav>
       </div>
     </section>
   </main>
 
   <footer class="site-footer on-blue">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div>
-          <p class="tagline">Built to Outlast the Warranty.</p>
-          <p>Rocklane Company General Contractors LLC<br>Roofing, siding and gutters for property managers, HOA boards and homeowners across central Indiana. Since 1980.</p>
-        </div>
-        <div>
-          <h3>Contact</h3>
-          <ul>
-            <li><a href="tel:+13178988696">(317) 898-8696</a></li>
-            <li><a href="mailto:rocklane@rocklaneco.com">rocklane@rocklaneco.com</a></li>
-            <li>1690 S. Franklin Rd.<br>Indianapolis, IN 46239</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Hours</h3>
-          <ul>
-            <li>Mon&ndash;Fri: 9 AM&ndash;4 PM ET</li>
-            <li>Saturday: By appointment</li>
-            <li>Sunday: Closed</li>
-          </ul>
-        </div>
+    <div class="wrap ftr-g">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/rocklane-co-logo.jpg" width="560" height="135" alt="Rocklane Co. General Contractors LLC, home" loading="lazy"></a>
+        <p class="tagline">Built to Outlast the Warranty.</p>
+        <p>Rocklane Company General Contractors LLC. Owner-operated in central Indiana since 1980. Part of the Rocklane Group.</p>
       </div>
-      <p class="legal">&copy; <span id="yr">2026</span> Rocklane Company General Contractors LLC, a Rocklane Group company. GAF, Master Elite and Golden Pledge are registered trademarks of GAF. &middot; <a href="/privacy-policy">Privacy</a> &middot; <a href="/portal-terms">Portal Terms</a> &middot; <a href="/portal">Customer Login</a></p>
+      <nav aria-labelledby="ft-s"><h2 id="ft-s">Services</h2><ul>
+        <li><a href="/roofing">Roofing</a></li><li><a href="/siding">Siding</a></li><li><a href="/gutters">Gutters</a></li><li><a href="/commercial">Commercial</a></li>
+      </ul></nav>
+      <nav aria-labelledby="ft-c"><h2 id="ft-c">Company</h2><ul>
+        <li><a href="/property-managers">HOA &amp; Property Managers</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li><li><a href="/contact">Request an Estimate</a></li><li><a href="/portal/">Customer Login</a></li>
+      </ul></nav>
+      <div><h2>Visit or call</h2>
+        <ul class="foot-contact">
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+13178988696">(317) 898-8696</a></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><a href="mailto:rocklane@rocklaneco.com">rocklane@rocklaneco.com</a></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>1690 S. Franklin Rd.<br>Indianapolis, IN 46239</span></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>Mon&ndash;Fri 9 AM&ndash;4 PM ET<br>Saturday by appointment</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <div class="wrap">
+        <div class="legal-row"><span>&copy; <span id="yr">2026</span> Rocklane Company General Contractors LLC, a Rocklane Group company</span><span>GAF Contractor ID 1003357 &middot; Independent Contractor</span><nav aria-label="Legal"><a href="/privacy-policy">Privacy</a><a href="/portal-terms">Portal Terms</a><a href="/portal/">Customer Login</a></nav></div>
+        <ol class="footnotes">
+          <li id="fn-1">Contractors enrolled in GAF certification programs are not employees or agents of GAF, and GAF does not control or otherwise supervise these independent businesses. Contractors may receive benefits, such as loyalty rewards points and discounts on marketing tools from GAF for participating in the program and offering GAF enhanced warranties, which require the use of a minimum amount of GAF products. Your dealings with a Contractor, and any services they provide to you, are subject to the Contractor Terms of Use. Visit gaf.com/gaf-contractor-terms-of-use for details.</li>
+          <li id="fn-2">See System Plus Limited Warranty, Silver Pledge&trade; Limited Warranty, and Golden Pledge&reg; Limited Warranty for complete coverage and restrictions. Visit gaf.com/LRS for qualifying products.</li>
+        </ol>
+        <p>GAF, Golden Pledge, Master Elite, Silver Pledge and System Plus are either registered trademarks or trademarks of BMIC LLC in the United States and/or other countries.</p>
+      </div>
     </div>
   </footer>
 
-  <div class="call-bar">
-    <a href="tel:+13178988696">Call Now</a>
+  <nav class="call-bar" aria-label="Quick actions">
+    <a href="tel:+13178988696"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call Now</a>
     <a href="/contact">Request an Estimate</a>
-  </div>
+  </nav>
 
   <script src="/js/site.js" defer></script>
 </body>

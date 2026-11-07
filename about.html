@@ -4,21 +4,98 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About Rocklane Co. | Owner-Operated Since 1980</title>
-  <meta name="description" content="Rocklane Company General Contractors LLC: owner-operated since 1980, GAF Master Elite, HAAG Certified Inspectors and IBHS FORTIFIED Roofing Contractors.">
+  <meta name="description" content="Rocklane Company General Contractors LLC: owner-operated in central Indiana since 1980, a GAF Master Elite roofing contractor, part of the Rocklane Group.">
   <link rel="canonical" href="https://rocklaneco.com/about">
+  <link rel="preload" as="image" href="/images/photos/indianapolis-skyline-dusk-1200.jpg" imagesrcset="/images/photos/indianapolis-skyline-dusk-1200.jpg 1200w, /images/photos/indianapolis-skyline-dusk.jpg 2400w" imagesizes="100vw">
   <meta name="theme-color" content="#1E5AA8">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="apple-touch-icon" href="/images/icon-180.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Rocklane Co.">
   <meta property="og:title" content="About Rocklane Co. | Owner-Operated Since 1980">
-  <meta property="og:description" content="Rocklane Company General Contractors LLC: owner-operated since 1980, GAF Master Elite, HAAG Certified Inspectors and IBHS FORTIFIED Roofing Contractors.">
+  <meta property="og:description" content="Rocklane Company General Contractors LLC: owner-operated in central Indiana since 1980, a GAF Master Elite roofing contractor, part of the Rocklane Group.">
   <meta property="og:url" content="https://rocklaneco.com/about">
-  <meta property="og:image" content="https://rocklaneco.com/images/home.jpg">
+  <meta property="og:image" content="https://rocklaneco.com/images/photos/carmel-townhomes-aerial-1200.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="/css/style.css">
+  <style>
+/* about: hero */
+.ab-hero { padding-bottom: clamp(110px, 12vw, 170px); }
+.ab-hero h1 { max-width: 15ch; }
+.ab-hero .ab-lede { font-size: clamp(1.1rem, 1.5vw, 1.3rem); max-width: 40rem; margin-top: .6rem; }
+.ab-hero .hero-foot { list-style: none; padding-left: 0; margin-bottom: 0; }
+.ab-hero .hero-foot li { display: inline-flex; gap: 8px; align-items: center; }
+.ab-hero .hero-foot .i { font-size: 17px; color: var(--green); }
+
+/* about: 01 mission */
+.ab-mission { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(40px, 6vw, 104px); align-items: center; }
+.ab-mission > * { min-width: 0; }
+.ab-mission .ab-state { font-size: clamp(1.25rem, 2vw, 1.6rem); font-weight: 700; line-height: 1.35; color: var(--char); letter-spacing: -.01em; margin: 0 0 1.4rem; }
+.ab-mission .ab-state em { font-style: normal; background: linear-gradient(transparent 62%, var(--green) 62%); }
+.ab-owner-line { display: flex; gap: 16px; align-items: flex-start; margin-top: 2rem; padding-top: 1.6rem; border-top: 1px solid rgba(74,74,74,.2); }
+.ab-owner-line p { margin: 0; }
+.ab-mission .offset-media .om-big { aspect-ratio: 4 / 3; object-position: center 15%; }
+.ab-mission .offset-media .om-sm { object-position: 45% center; }
+
+/* about: 02 owners */
+.ab-people { gap: clamp(14px, 1.6vw, 24px); }
+.ab-people .person { display: flex; flex-direction: column; padding: clamp(26px, 2.4vw, 36px) clamp(22px, 2vw, 30px) clamp(26px, 2.4vw, 32px); min-height: 100%; }
+.ab-people .person .mono { width: 76px; height: 76px; font-size: 24px; letter-spacing: .02em; margin-bottom: 26px; }
+.ab-people .person h3 { font-size: clamp(1.2rem, 1.5vw, 1.4rem); margin: 0 0 .9rem; color: var(--blue); }
+.ab-people .person .ab-role { display: block; font-size: .74rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); margin: 0 0 .7rem; line-height: 1.5; }
+.ab-people .person .ab-cred { margin: auto 0 0; padding-top: 1rem; border-top: 1px solid var(--grey); font-size: .95rem; font-weight: 600; line-height: 1.5; color: var(--char); }
+.ab-people .person.ab-next { border-top-color: var(--green); }
+.ab-team { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(14px, 1.6vw, 24px); margin-top: clamp(14px, 1.6vw, 24px); }
+.ab-team > div { display: grid; grid-template-columns: 56px 1fr; gap: 18px; align-items: start; background: var(--white); padding: clamp(24px, 2.4vw, 34px); }
+.ab-team h3 { margin: 0 0 .35em; font-size: 1.15rem; }
+.ab-team p { margin: 0; }
+.ab-team .ico { width: 56px; height: 56px; }
+
+/* about: 03 principles band */
+.ab-band { position: relative; isolation: isolate; overflow: hidden; background: var(--blue-d); }
+.ab-band-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+/* uniform >=88% Shark Blue: white text >=6.5:1 even over a white pixel */
+.ab-band::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(135deg, rgba(30,90,168,.9), rgba(23,72,138,.95)); }
+.ab-band .values li { border-top-color: rgba(255,255,255,.35); }
+.ab-band .values li::before { color: var(--white); }
+.ab-band .values { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 clamp(24px, 3vw, 48px); }
+.ab-band .values h3 { font-size: clamp(1.15rem, 1.5vw, 1.35rem); }
+.ab-band .values li:first-child { grid-column: 1 / -1; padding-bottom: 36px; }
+.ab-band .values li:first-child h3 { font-size: clamp(1.4rem, 2.4vw, 2rem); }
+.ab-band .values li:first-child p { font-size: clamp(1.1rem, 1.6vw, 1.35rem); font-weight: 600; max-width: 40rem; }
+.ab-band .values li:first-child::before { font-size: 2.4rem; }
+
+/* about: 04 credentials */
+.ab-creds .card { min-height: 100%; }
+.ab-creds .ab-k { display: block; font-size: .74rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--char); margin-bottom: .7rem; }
+.ab-creds .gaf-slot { margin-bottom: 22px; }
+.ab-creds .ab-names { list-style: none; margin: auto 0 0; padding: 0; }
+.ab-creds .ab-names li { display: flex; gap: 12px; align-items: center; padding: 12px 0; border-top: 1px solid var(--grey); font-weight: 700; color: var(--char); }
+.ab-creds .ab-names .i { color: var(--blue); }
+.ab-creds .ab-fine { font-size: .85rem; margin: auto 0 0; padding-top: 14px; border-top: 1px solid var(--grey); }
+
+/* about: 05 group (shared commercial cards without the overlapping hero) */
+.ab-group .com-cards { margin-top: 0; }
+
+@media (max-width: 1100px) {
+  .ab-people, .ab-band .values { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .ab-mission, .ab-team { grid-template-columns: 1fr; }
+  .ab-mission .offset-media { order: -1; margin-right: 6%; }
+}
+@media (max-width: 767px) {
+  .ab-people { grid-template-columns: 1fr; }
+  .ab-band .values { grid-template-columns: 1fr; }
+  .ab-team > div { grid-template-columns: 1fr; }
+}
+@media print {
+  .ab-band { background: var(--blue-d); }
+  .person, .card { break-inside: avoid; }
+}
+  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -28,7 +105,7 @@
   "slogan": "Built to Outlast the Warranty.",
   "foundingDate": "1980",
   "url": "https://rocklaneco.com/",
-  "image": "https://rocklaneco.com/images/home.jpg",
+  "image": "https://rocklaneco.com/images/photos/carmel-townhomes-aerial-1200.jpg",
   "logo": "https://rocklaneco.com/images/rocklane-co-logo.jpg",
   "telephone": "+1-317-898-8696",
   "email": "rocklane@rocklaneco.com",
@@ -130,90 +207,234 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <div class="topbar">
+  <div class="util on-blue">
     <div class="wrap">
-      <span>Owner-Operated. Indiana-Proven.<span class="hide-sm"> &nbsp;&middot;&nbsp; Since 1980</span></span>
-      <span><a href="tel:+13178988696">(317) 898-8696</a><span class="hide-sm"> &nbsp;|&nbsp; Mon&ndash;Fri 9 AM&ndash;4 PM ET</span> &nbsp;|&nbsp; <a href="/portal">Customer Login</a></span>
+      <div class="util-l">
+        <a href="tel:+13178988696"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>(317) 898-8696</a>
+        <span class="util-hrs"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Mon&ndash;Fri 9 AM&ndash;4 PM ET &middot; Saturday by appointment</span>
+      </div>
+      <div class="util-r">
+        <span class="util-gaf"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="6.5"/><path d="M8.2 13.6 7 22l5-3 5 3-1.2-8.4"/></svg>GAF Master Elite&reg; roofing contractor</span>
+        <a href="/portal/"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Customer Login</span></a>
+      </div>
     </div>
   </div>
   <header class="site-header">
     <div class="wrap">
-      <!-- Approved Rocklane Co. primary lockup (Nov 4, 2026 kit). Do not stretch, recolor or add effects. -->
-      <a class="brand" href="/">
-        <img src="/images/rocklane-co-logo.jpg" width="560" height="135" alt="Rocklane Co. General Contractors LLC">
-      </a>
-      <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+      <!-- Approved Rocklane Co. primary lockup. Do not stretch, crop, recolor or add effects. -->
+      <a class="brand" href="/"><img src="/images/rocklane-co-logo.jpg" width="560" height="135" alt="Rocklane Co. General Contractors LLC, home"></a>
       <nav class="nav" id="nav" aria-label="Main">
-        <a href="/roofing">Roofing</a>
-        <a href="/siding">Siding</a>
-        <a href="/gutters">Gutters</a>
-        <a href="/property-managers">HOA &amp; Property Managers</a>
-        <a href="/about" aria-current="page">About</a>
-        <a href="/contact">Contact</a>
-        <a class="btn" href="tel:+13178988696">Call (317) 898-8696</a>
+        <ul>
+          <li><a href="/roofing">Roofing</a></li>
+          <li><a href="/siding">Siding</a></li>
+          <li><a href="/gutters">Gutters</a></li>
+          <li><a href="/commercial">Commercial</a></li>
+          <li><a href="/property-managers">HOA &amp; Property Managers</a></li>
+          <li><a href="/about" aria-current="page">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
       </nav>
+      <div class="hdr-cta">
+        <a class="hdr-ph" href="tel:+13178988696" aria-label="Call (317) 898-8696"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span>(317) 898-8696</span></a>
+        <a class="btn btn-sm" href="/contact">Request an Estimate</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></svg><span>Menu</span></button>
+      </div>
     </div>
   </header>
 
   <main id="main">
-    <div class="page-head on-blue">
+    <div class="page-head on-blue has-photo ab-hero">
+      <img class="ph-bg" src="/images/photos/indianapolis-skyline-dusk-1200.jpg" srcset="/images/photos/indianapolis-skyline-dusk-1200.jpg 1200w, /images/photos/indianapolis-skyline-dusk.jpg 2400w" sizes="100vw" width="2400" height="1349" alt="" fetchpriority="high" style="object-position:center 60%">
       <div class="wrap">
-        <span class="eyebrow">Since 1980</span>
-        <h1>About Rocklane Co.</h1>
-        <p>Owner-operated. Indiana-proven.</p>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>About</span></nav>
+        <span class="eyebrow">Owner-operated since 1980</span>
+        <h1>The owners still answer the phone.</h1>
+        <p class="ab-lede">Rocklane Company General Contractors LLC has been owner-operated in central Indiana since 1980. The people who own the company run the work, and if something goes wrong, you get an owner on the phone.</p>
+        <ul class="hero-foot">
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>Owners in daily management</li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>GAF Master Elite&reg; roofing contractor</li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg>Part of the Rocklane Group</li>
+        </ul>
       </div>
+      <span class="photo-cap"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Pictured: Indianapolis, Indiana</span>
     </div>
 
-    <section>
-      <div class="wrap">
-        <h2>Our mission</h2>
-        <p class="lead">We protect the buildings that shelter Indiana &mdash; with the craftsmanship of owners, the knowledge of specialists, and the accountability of a team that signs its name to every project.</p>
-        <p>Rocklane Company General Contractors LLC is owned and operated by Justin Reddick, Kevin Kortzendorf and Greg Burkert, owners with decades of hands-on experience. Michael Burkert joins as an owner on January 1, 2027. Owners are active in daily management, and you can reach them directly through the office at <a href="tel:+13178988696">(317) 898-8696</a>.</p>
-      </div>
-    </section>
-
-    <section class="grey">
-      <div class="wrap">
-        <h2 class="center">Credentials</h2>
-        <div class="cards">
-          <div class="card"><h3>GAF Master Elite&reg; Roofing Contractor</h3><p>Held by the top 2% of roofing contractors nationally.</p></div>
-          <div class="card"><h3>HAAG Certified Inspector &mdash; Residential Roofs</h3><p>Justin Reddick and Kevin Kortzendorf.</p></div>
-          <div class="card"><h3>IBHS FORTIFIED&trade; Roofing Contractor</h3><p>Greg Burkert and Michael Burkert.</p></div>
-        </div>
-        <p class="center" style="margin-top:20px">A Director of Training &amp; Quality Control is on staff &mdash; not an outsourced function.</p>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <h2>What we stand for</h2>
-        <div class="cards">
-          <div class="card"><h3>Workmanship is the warranty.</h3><p>Manufacturer warranties cover materials. We cover the work. If we installed it, we own it.</p></div>
-          <div class="card"><h3>One contractor, accountable.</h3><p>We coordinate the specialists, adjusters, engineers and suppliers. You never get handed off.</p></div>
-          <div class="card"><h3>Straight answers, every time.</h3><p>If a repair will outperform a replacement, we say so &mdash; even when it means a smaller job.</p></div>
-          <div class="card"><h3>Permanent results.</h3><p>We build to last past the warranty, not to the warranty.</p></div>
-          <div class="card"><h3>Owners on every job.</h3><p>If something goes wrong, you get an owner on the phone &mdash; not a message system.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="grey">
-      <div class="wrap">
-        <h2>Part of the Rocklane Group</h2>
-        <p>Rocklane Co. is one of the operating companies of the Rocklane Group, which shares one quality standard, one team and one equipment base. Commercial low-slope roofing (EPDM, TPO and PVC) is handled by Rocklane Commercial Contractors LLC, a GAF Certified Commercial Contractor and Versico Authorized Contractor.</p>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <div class="callout on-blue">
-          <div>
-            <h2>Talk to an owner about your project.</h2>
-            <p>Call the office and you&rsquo;ll reach the people who run the work &mdash; not a call center.</p>
+    <section aria-labelledby="mis-h">
+      <div class="wrap ab-mission">
+        <div class="reveal">
+          <span class="sec-num" aria-hidden="true">01</span>
+          <span class="eyebrow">Our mission</span>
+          <h2 id="mis-h">We protect the buildings that shelter Indiana.</h2>
+          <p class="ab-state">With the craftsmanship of owners, the knowledge of specialists, and the accountability of a team that <em>signs its name to every project.</em></p>
+          <p>Homes, condominium and townhome communities, apartment communities, and the walls and gutters of warehouses and commercial buildings across central Indiana, with more than 100 completed communities and commercial properties behind us. Roofing, siding and seamless gutters, installed by Rocklane crews and backed by our own workmanship warranty.</p>
+          <div class="ab-owner-line">
+            <span class="ico ico-blue"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+            <p>Owners are active in daily management. Reach them directly through the office at <a href="tel:+13178988696">(317) 898-8696</a>, Mon&ndash;Fri 9 AM&ndash;4 PM ET.</p>
           </div>
-          <div class="btn-row">
-            <a class="btn" href="tel:+13178988696">Call (317) 898-8696</a>
-            <a class="btn btn-outline" href="/contact">Request an Estimate</a>
+        </div>
+        <div class="offset-media reveal" style="--d:.1s">
+          <img class="om-big" src="/images/photos/indy-brick-townhomes-1200.jpg" srcset="/images/photos/indy-brick-townhomes-1200.jpg 1200w, /images/photos/indy-brick-townhomes.jpg 2400w" sizes="(max-width:900px) 94vw, 56vw" width="2400" height="1600" alt="Two-story brick townhome buildings under large shade trees in Indianapolis at golden hour" loading="lazy" decoding="async">
+          <img class="om-sm" src="/images/photos/indiana-farmhouse-fall-1200.jpg" srcset="/images/photos/indiana-farmhouse-fall-1200.jpg 1200w, /images/photos/indiana-farmhouse-fall.jpg 2400w" sizes="(max-width:900px) 44vw, 26vw" width="2400" height="1600" alt="White two-story Indiana farmhouse with a shingle roof among bright fall maples" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <section class="grey" aria-labelledby="own-h">
+      <div class="wrap">
+        <div class="sec-hd reveal">
+          <div><span class="sec-num" aria-hidden="true">02</span><span class="eyebrow">Ownership</span><h2 id="own-h">The people who sign their name to the work.</h2></div>
+          <p>Rocklane Co. is owned and operated by Justin Reddick, Kevin Kortzendorf and Greg Burkert. Michael Burkert joins as an owner on January 1, 2027.</p>
+        </div>
+        <div class="people ab-people">
+          <article class="person reveal">
+            <span class="mono" aria-hidden="true">JR</span>
+            <h3>Justin Reddick</h3>
+            <span class="ab-role">Owner</span>
+            <p class="ab-cred">HAAG Certified Inspector, Residential Roofs</p>
+          </article>
+          <article class="person reveal">
+            <span class="mono" aria-hidden="true">KK</span>
+            <h3>Kevin Kortzendorf</h3>
+            <span class="ab-role">Owner</span>
+            <p class="ab-cred">HAAG Certified Inspector, Residential Roofs</p>
+          </article>
+          <article class="person reveal">
+            <span class="mono" aria-hidden="true">GB</span>
+            <h3>Greg Burkert</h3>
+            <span class="ab-role">Owner</span>
+            <p class="ab-cred">IBHS FORTIFIED&trade; Roofing Contractor</p>
+          </article>
+          <article class="person ab-next reveal">
+            <span class="mono" aria-hidden="true">MB</span>
+            <h3>Michael Burkert</h3>
+            <span class="ab-role">Joins as an owner on January 1, 2027</span>
+            <p class="ab-cred">IBHS FORTIFIED&trade; Roofing Contractor</p>
+          </article>
+        </div>
+        <div class="ab-team">
+          <div class="reveal"><span class="ico ico-blue"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></span><div><h3>Director of Training &amp; Quality Control</h3><p>On staff, not an outsourced function, setting the standard our crews install to.</p></div></div>
+          <div class="reveal" style="--d:.08s"><span class="ico ico-blue"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.9-3.9a2 2 0 0 0-2.8 0l-.9.9a1 1 0 1 1-3-3l2.8-2.8a5.8 5.8 0 0 1 7.1-.9l.5.3a2 2 0 0 0 1.4.2L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></span><div><h3>Specialists on demand</h3><p>Storm-damage inspectors, public adjusters and engineers, brought in when a project needs them. You never manage the handoff.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ab-band on-blue" aria-labelledby="val-h">
+      <img class="ab-band-bg" src="/images/photos/tipton-roof-topdown-1200.jpg" srcset="/images/photos/tipton-roof-topdown-1200.jpg 1200w, /images/photos/tipton-roof-topdown.jpg 2400w" sizes="100vw" width="2400" height="1348" alt="" loading="lazy" decoding="async">
+      <div class="wrap">
+        <div class="sec-hd reveal">
+          <div><span class="sec-num" aria-hidden="true">03</span><span class="eyebrow">What we stand for</span><h2 id="val-h">Five principles, on every project.</h2></div>
+          <p>The standard we hold our crews, our specialists and ourselves to.</p>
+        </div>
+        <ol class="values reveal">
+          <li><h3>Workmanship is the warranty.</h3><p>&ldquo;Manufacturers cover materials. We cover the work. If we installed it, we own it.&rdquo;</p></li>
+          <li><h3>One contractor, accountable.</h3><p>We coordinate the specialists, adjusters, engineers and suppliers. You never manage the handoff.</p></li>
+          <li><h3>Straight answers, every time.</h3><p>If a repair will outperform a replacement, we say so &mdash; even when it means a smaller job.</p></li>
+          <li><h3>Permanent results.</h3><p>We build to last past the warranty, not to the warranty.</p></li>
+          <li><h3>Owners on every job.</h3><p>If something goes wrong, you get an owner on the phone &mdash; not a message system.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section aria-labelledby="cred-h">
+      <div class="wrap">
+        <div class="sec-hd reveal">
+          <div><span class="sec-num" aria-hidden="true">04</span><span class="eyebrow">Credentials</span><h2 id="cred-h">Certified where it counts.</h2></div>
+          <p>The company credential is GAF Master Elite&reg;. Individual inspection and resilience credentials belong to the owners who earned them.</p>
+        </div>
+        <div class="cards ab-creds">
+          <article class="card reveal">
+            <div class="gaf-slot">GAF Master Elite&reg; badge &mdash; official artwork pending</div>
+            <span class="ab-k">Rocklane Co.</span>
+            <h3>GAF Master Elite&reg; roofing contractor</h3>
+            <p>Only 2% of roofers in North America are invited to become GAF Master Elite Contractors<sup class="fn-ref"><a href="#fn-1" aria-label="Footnote 1">1</a></sup>.</p>
+            <p class="ab-fine">Master Elite&reg; status is what lets us offer GAF&rsquo;s Golden Pledge&reg; warranty on qualifying roofing systems. <a href="/roofing">GAF warranty options</a></p>
+          </article>
+          <article class="card reveal" style="--d:.08s">
+            <span class="ico ico-blue"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7.5"/><path d="m21 21-4.6-4.6"/></svg></span>
+            <span class="ab-k">Residential Roofs</span>
+            <h3>Justin Reddick &amp; Kevin Kortzendorf</h3>
+            <p>Owners, each a HAAG Certified Inspector, Residential Roofs. Inspections at Rocklane Co. are owner-led.</p>
+            <ul class="ab-names">
+              <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Justin Reddick</li>
+              <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Kevin Kortzendorf</li>
+            </ul>
+          </article>
+          <article class="card reveal" style="--d:.16s">
+            <span class="ico ico-blue"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <span class="ab-k">Resilient roofing</span>
+            <h3>Greg Burkert &amp; Michael Burkert</h3>
+            <p>Greg Burkert, owner, and Michael Burkert, who joins as an owner on January 1, 2027: each an IBHS FORTIFIED&trade; Roofing Contractor.</p>
+            <ul class="ab-names">
+              <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Greg Burkert</li>
+              <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Michael Burkert</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="grey ab-group" aria-labelledby="grp-h">
+      <div class="wrap">
+        <div class="sec-hd reveal">
+          <div><span class="sec-num" aria-hidden="true">05</span><span class="eyebrow">The Rocklane Group</span><h2 id="grp-h">Part of the Rocklane Group.</h2></div>
+          <p>Rocklane Co. handles roofing, siding and gutters on homes and communities, plus gutters, siding and metal wall panels on warehouses and commercial buildings. Commercial low-slope membrane roofing is handled by our sister company, Rocklane Commercial Contractors LLC.</p>
+        </div>
+        <div class="com-cards">
+          <article class="com-card reveal">
+            <img src="/images/photos/warehouse-dock-doors-1200.jpg" srcset="/images/photos/warehouse-dock-doors-1200.jpg 1200w, /images/photos/warehouse-dock-doors.jpg 2400w" sizes="(max-width:900px) 100vw, 50vw" width="2400" height="1600" alt="White tilt-up warehouse wall with loading dock doors" loading="lazy" decoding="async" style="object-position:center 60%">
+            <div class="b">
+              <span class="who">Rocklane Co.</span>
+              <h3>Warehouse &amp; commercial exteriors</h3>
+              <ul class="ticks">
+                <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>Commercial gutters and downspouts</li>
+                <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>Siding</li>
+                <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>Metal wall panels</li>
+              </ul>
+              <a class="text-link" href="/commercial">Commercial exteriors <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+          </article>
+          <article class="com-card reveal" style="--d:.08s">
+            <img src="/images/photos/commercial-corridor-aerial-1200.jpg" srcset="/images/photos/commercial-corridor-aerial-1200.jpg 1200w, /images/photos/commercial-corridor-aerial.jpg 2400w" sizes="(max-width:900px) 100vw, 50vw" width="2400" height="1800" alt="Aerial view of flat-roof office buildings and a mid-rise condominium building" loading="lazy" decoding="async">
+            <div class="b">
+              <span class="who">Rocklane Commercial Contractors LLC</span>
+              <h3>Low-slope membrane roofing</h3>
+              <ul class="ticks">
+                <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>EPDM, TPO and PVC membrane systems</li>
+                <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>A GAF Certified Commercial Contractor</li>
+              </ul>
+              <div class="versico">
+                <img src="/images/brands/versico-logo.png" width="2382" height="1077" alt="Versico Roofing Systems" loading="lazy">
+                <p>Rocklane Commercial Contractors LLC is a GAF Certified Commercial Contractor and Versico Authorized.</p>
+              </div>
+              <a class="text-link" href="/commercial#membrane">Commercial roofing <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="partners" aria-labelledby="pt-h">
+      <div class="wrap">
+        <div><h2 id="pt-h" class="sr">Products we install</h2><p>We install James Hardie&reg; siding and Variform vinyl siding, and roof as a GAF Master Elite&reg; contractor.</p></div>
+        <div class="logos">
+          <div class="logo-box"><img src="/images/brands/variform-logo.svg" width="196" height="52" alt="Variform" loading="lazy"></div>
+          <div class="logo-box"><img src="/images/brands/james-hardie-logo.svg" width="193" height="40" alt="James Hardie" loading="lazy"></div>
+          <div class="gaf-slot">GAF Master Elite&reg; badge &mdash; official artwork pending</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final" aria-labelledby="cta-h">
+      <img class="final-bg" src="/images/photos/broad-ripple-brick-texture-1200.jpg" srcset="/images/photos/broad-ripple-brick-texture-1200.jpg 1200w, /images/photos/broad-ripple-brick-texture.jpg 2400w" sizes="100vw" width="2400" height="1600" alt="" loading="lazy" decoding="async">
+      <div class="wrap">
+        <div class="final-card on-blue reveal">
+          <div><span class="eyebrow">Free estimates</span><h2 id="cta-h">Talk to an owner about your project.</h2></div>
+          <div>
+            <p>Call the office and you&rsquo;ll reach the people who run the work. An estimate is the first status in your project.</p>
+            <div class="btn-row">
+              <a class="btn" href="/contact">Request an Estimate <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+              <a class="btn btn-outline" href="tel:+13178988696"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>(317) 898-8696</a>
+            </div>
           </div>
         </div>
       </div>
@@ -221,37 +442,43 @@
   </main>
 
   <footer class="site-footer on-blue">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div>
-          <p class="tagline">Built to Outlast the Warranty.</p>
-          <p>Rocklane Company General Contractors LLC<br>Roofing, siding and gutters for property managers, HOA boards and homeowners across central Indiana. Since 1980.</p>
-        </div>
-        <div>
-          <h3>Contact</h3>
-          <ul>
-            <li><a href="tel:+13178988696">(317) 898-8696</a></li>
-            <li><a href="mailto:rocklane@rocklaneco.com">rocklane@rocklaneco.com</a></li>
-            <li>1690 S. Franklin Rd.<br>Indianapolis, IN 46239</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Hours</h3>
-          <ul>
-            <li>Mon&ndash;Fri: 9 AM&ndash;4 PM ET</li>
-            <li>Saturday: By appointment</li>
-            <li>Sunday: Closed</li>
-          </ul>
-        </div>
+    <div class="wrap ftr-g">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/rocklane-co-logo.jpg" width="560" height="135" alt="Rocklane Co. General Contractors LLC, home" loading="lazy"></a>
+        <p class="tagline">Built to Outlast the Warranty.</p>
+        <p>Rocklane Company General Contractors LLC. Owner-operated in central Indiana since 1980. Part of the Rocklane Group.</p>
       </div>
-      <p class="legal">&copy; <span id="yr">2026</span> Rocklane Company General Contractors LLC, a Rocklane Group company. GAF, Master Elite and Golden Pledge are registered trademarks of GAF. &middot; <a href="/privacy-policy">Privacy</a> &middot; <a href="/portal-terms">Portal Terms</a> &middot; <a href="/portal">Customer Login</a></p>
+      <nav aria-labelledby="ft-s"><h2 id="ft-s">Services</h2><ul>
+        <li><a href="/roofing">Roofing</a></li><li><a href="/siding">Siding</a></li><li><a href="/gutters">Gutters</a></li><li><a href="/commercial">Commercial</a></li>
+      </ul></nav>
+      <nav aria-labelledby="ft-c"><h2 id="ft-c">Company</h2><ul>
+        <li><a href="/property-managers">HOA &amp; Property Managers</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li><li><a href="/contact">Request an Estimate</a></li><li><a href="/portal/">Customer Login</a></li>
+      </ul></nav>
+      <div><h2>Visit or call</h2>
+        <ul class="foot-contact">
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+13178988696">(317) 898-8696</a></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><a href="mailto:rocklane@rocklaneco.com">rocklane@rocklaneco.com</a></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>1690 S. Franklin Rd.<br>Indianapolis, IN 46239</span></li>
+          <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>Mon&ndash;Fri 9 AM&ndash;4 PM ET<br>Saturday by appointment</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <div class="wrap">
+        <div class="legal-row"><span>&copy; <span id="yr">2026</span> Rocklane Company General Contractors LLC, a Rocklane Group company</span><span>GAF Contractor ID 1003357 &middot; Independent Contractor</span><nav aria-label="Legal"><a href="/privacy-policy">Privacy</a><a href="/portal-terms">Portal Terms</a><a href="/portal/">Customer Login</a></nav></div>
+        <ol class="footnotes">
+          <li id="fn-1">Contractors enrolled in GAF certification programs are not employees or agents of GAF, and GAF does not control or otherwise supervise these independent businesses. Contractors may receive benefits, such as loyalty rewards points and discounts on marketing tools from GAF for participating in the program and offering GAF enhanced warranties, which require the use of a minimum amount of GAF products. Your dealings with a Contractor, and any services they provide to you, are subject to the Contractor Terms of Use. Visit gaf.com/gaf-contractor-terms-of-use for details.</li>
+          <li id="fn-2">See System Plus Limited Warranty, Silver Pledge&trade; Limited Warranty, and Golden Pledge&reg; Limited Warranty for complete coverage and restrictions. Visit gaf.com/LRS for qualifying products.</li>
+        </ol>
+        <p>GAF, Golden Pledge, Master Elite, Silver Pledge and System Plus are either registered trademarks or trademarks of BMIC LLC in the United States and/or other countries.</p>
+      </div>
     </div>
   </footer>
 
-  <div class="call-bar">
-    <a href="tel:+13178988696">Call Now</a>
+  <nav class="call-bar" aria-label="Quick actions">
+    <a href="tel:+13178988696"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call Now</a>
     <a href="/contact">Request an Estimate</a>
-  </div>
+  </nav>
 
   <script src="/js/site.js" defer></script>
 </body>
