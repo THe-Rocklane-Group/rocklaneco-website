@@ -262,6 +262,7 @@ section { padding: clamp(72px, 10vw, 144px) 0; }
 /* Placeholder for official GAF artwork (never draw a GAF logo) */
 /* GAF's own Master Elite badge: unaltered, and smaller than the Rocklane logo (GAF: logo >= 2x the badge) */
 .gaf-badge { display: block; flex: none; width: 104px; height: auto; }
+.gaf-awards { display: flex; flex: none; gap: 14px; align-items: center; }
 
 /* ---------------------------------------------------------------- process timeline + portal card */
 .process { position: relative; isolation: isolate; overflow: hidden; }

@@ -67,7 +67,7 @@ CSS = """
 /* about: 04 credentials */
 .ab-creds .card { min-height: 100%; }
 .ab-creds .ab-k { display: block; font-size: .74rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--char); margin-bottom: .7rem; }
-.ab-creds .gaf-badge { margin-bottom: 22px; }
+.ab-creds .gaf-awards { margin-bottom: 22px; }
 .ab-creds .ab-names { list-style: none; margin: auto 0 0; padding: 0; }
 .ab-creds .ab-names li { display: flex; gap: 12px; align-items: center; padding: 12px 0; border-top: 1px solid var(--grey); font-weight: 700; color: var(--char); }
 .ab-creds .ab-names .i { color: var(--blue); }
@@ -176,13 +176,14 @@ BODY = f"""    <div class="page-head on-blue has-photo ab-hero">
 
     <section aria-labelledby="cred-h">
       <div class="wrap">
-{sec_hd("04", "Credentials", "Certified where it counts.", "The company credential is GAF Master Elite&reg;. Individual inspection and resilience credentials belong to the owners who earned them.", "cred-h")}
+{sec_hd("04", "Credentials", "Certified where it counts.", "The company credentials are GAF Master Elite&reg; and GAF&rsquo;s President&rsquo;s Club Award. Individual inspection and resilience credentials belong to the owners who earned them.", "cred-h")}
         <div class="cards ab-creds">
           <article class="card reveal">
-            {gaf_badge()}
+            {gaf_awards()}
             <span class="ab-k">{SHORT}</span>
-            <h3>GAF Master Elite&reg; roofing contractor</h3>
+            <h3>GAF Master Elite&reg; roofing contractor and President&rsquo;s Club Award recipient</h3>
             <p>{GAF_CLAIM_HTML}.</p>
+            <p>{PRESIDENTS_CLUB_HTML}.</p>
             <p class="ab-fine">Master Elite&reg; status is what lets us offer GAF&rsquo;s Golden Pledge&reg; warranty on qualifying roofing systems. <a href="/roofing">GAF warranty options</a></p>
           </article>
           <article class="card reveal" style="--d:.08s">
