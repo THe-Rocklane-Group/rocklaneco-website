@@ -48,11 +48,12 @@ BODY = f"""    <div class="page-head on-blue">
             <div class="field"><label for="st-pass">Password</label><input id="st-pass" name="password" type="password" autocomplete="current-password" required></div>
             <button class="btn" type="submit">Sign In</button>
             <p id="signin-msg" class="notice" role="alert" hidden></p>
+            <p class="fine">No portal account yet? <a href="/portal/">Create one in the customer portal</a> (choose <strong>Create account</strong>) with your @rocklaneco.com email, then confirm the verification email. Staff access also needs an owner to add your email to the staff list in the Firebase console.</p>
           </form>
         </div>
         <div class="view panel" id="v-denied" hidden>
           <h2>Staff access only</h2>
-          <p>This account isn&rsquo;t on the staff list, or its email isn&rsquo;t verified yet. Customers can use the <a href="/portal/">customer portal</a>.</p>
+          <p>This account isn&rsquo;t on the staff list, or its email isn&rsquo;t verified yet. If you&rsquo;re Rocklane staff, confirm your email from the verification message, then ask an owner to add your email to the staff list in the Firebase console. Customers can use the <a href="/portal/">customer portal</a>.</p>
         </div>
 
         <nav class="staff-tabs" aria-label="Admin sections" hidden>

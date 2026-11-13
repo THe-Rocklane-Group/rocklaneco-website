@@ -44,6 +44,12 @@ GAF_FOOTNOTE2 = ("See System Plus Limited Warranty, Silver Pledge&trade; Limited
 GAF_TRADEMARK = ("GAF, Golden Pledge, Master Elite, Silver Pledge and System Plus are either registered "
                  "trademarks or trademarks of BMIC LLC in the United States and/or other countries.")
 GAF_ID = "GAF Contractor ID 1003357 &middot; Independent Contractor"
+# Required by Atlas wherever its logo is used (atlasroofing.com/marketing-resources, Partner Brand Style Guide 2025).
+ATLAS_DISCLAIMER = "Rocklane Co. is an Independent Roofing Contractor, not an Employee or Agent of Atlas Roofing Corporation."
+# VELUX dealer digital guidelines (pro.veluxusa.com/digital-guidelines).
+VELUX_TRADEMARK = "VELUX and the VELUX logo are registered trademarks of VKR Holding A/S."
+OTHER_TRADEMARKS = ("Atlas, James Hardie, Royal, Variform and Versico are trademarks of their respective owners, "
+                    "shown to identify products we install.")
 QUOTE = "Manufacturers cover materials. We cover the work. If we installed it, we own it."
 
 SCHEMA = {
@@ -307,10 +313,13 @@ PROCESS = process()
 
 PARTNERS = f"""    <section class="partners" aria-labelledby="pt-h">
       <div class="wrap">
-        <div><h2 id="pt-h" class="sr">Products we install</h2><p>We install James Hardie&reg; siding and Variform vinyl siding, and roof as a GAF Master Elite&reg; contractor.</p></div>
+        <div><h2 id="pt-h" class="sr">Products we install</h2><p>We install Atlas&reg; shingles, VELUX&reg; skylights, James Hardie&reg; fiber cement siding, and Variform and Royal&reg; vinyl siding, and roof as a GAF Master Elite&reg; contractor.</p></div>
         <div class="logos">
-          <div class="logo-box"><img src="/images/brands/variform-logo.svg" width="196" height="52" alt="Variform" loading="lazy"></div>
+          <div class="logo-box"><img src="/images/brands/atlas-logo.jpg" width="600" height="412" alt="Atlas Roofing" loading="lazy"></div>
+          <div class="logo-box"><img src="/images/brands/velux-logo.svg" width="124" height="42" alt="VELUX" loading="lazy"></div>
           <div class="logo-box"><img src="/images/brands/james-hardie-logo.svg" width="193" height="40" alt="James Hardie" loading="lazy"></div>
+          <div class="logo-box"><img src="/images/brands/variform-logo.svg" width="196" height="52" alt="Variform" loading="lazy"></div>
+          <div class="logo-box"><img src="/images/brands/royal-siding-logo.svg" width="308" height="208" alt="Royal siding" loading="lazy"></div>
           {gaf_slot()}
         </div>
       </div>
@@ -469,7 +478,8 @@ def page(path, title, desc, body, current, head="", scripts="", index=True, css=
           <li id="fn-1">{GAF_DISCLOSURE}</li>
           <li id="fn-2">{GAF_FOOTNOTE2}</li>
         </ol>
-        <p>{GAF_TRADEMARK}</p>
+        <p>{GAF_TRADEMARK} {VELUX_TRADEMARK} {OTHER_TRADEMARKS}</p>
+        <p>{ATLAS_DISCLAIMER}</p>
       </div>
     </div>
   </footer>
