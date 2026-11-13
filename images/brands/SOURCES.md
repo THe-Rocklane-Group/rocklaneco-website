@@ -12,9 +12,12 @@ Light Grey. Retrieved from the manufacturers' own websites on Nov 13, 2026.
 | `royal-siding-logo.svg` | Royal&reg; siding (Westlake Royal Building Products) | https://www.westlakeroyalbuildingproducts.com/ ("Our Brands" strip, Royal Siding) | The company is now Westlake Royal Building Products (since Feb 2022); the old "ROYAL Building Products" wordmark is retired. No public usage guide found. |
 | `velux-logo.svg` | VELUX | https://afd-marketing.velux.com/-/media/marketing/master/logo/velux%20logo.svg (header logo on https://pro.veluxusa.com/digital-guidelines/follow-the-guidelines) | Never alter; not next to skylight competitors; write "VELUX&reg; skylights" (VELUX is an adjective). Trademark line: "VELUX and the VELUX logo are registered trademarks of VKR Holding A/S." |
 
-**GAF (logo and Master Elite&reg; badge): not included.** GAF serves its contractor logos only through the
-GAF Partner Portal / GAF Assets Brand Portal (login required), and gaf.com refuses automated downloads.
-Download the "GAF Master Elite Residential Roofing Contractor" badge and the GAF logo from the portal with
-Rocklane's contractor login (ID 1003357), save them here, and replace `gaf_slot()` in `tools/site_common.py`.
-GAF rules: your own logo at least 2x the size of the certification badge; the GAF logo equally prominent with
-the other brands in the strip. Never use the retired "Factory Certified Master Elite / Weather Stopper" badge.
+**GAF (added Nov 13, 2026).** Taken from GAF's own website in a normal browser session. GAF's partner portal,
+its official channel for contractor artwork, needs a Rocklane login that wasn't available.
+
+| File | Mark | Source | Rules that apply on this site |
+|---|---|---|---|
+| `gaf-logo.svg` | GAF corporate logo (red square, white GAF) | GAF's vector header logo on https://www.gaf.com/en-us, with only the red square and letterforms kept (paths unchanged). The grey tagline beside it ("We protect what matters most") was dropped because GAF does not let contractors use it. | Only in the products strip, the same size as the other brands; Rocklane's logo at least 2x its size. |
+| `gaf-master-elite.png` | GAF Master Elite&reg; Residential Roofing Contractor badge | https://www.gaf.com/-/media/images/contractor-profile/certifications-and-awards/master-elite.png, shown on Rocklane's GAF directory listing (https://www.gaf.com/en-us/roofing-contractors/residential/usa/in/indianapolis/rocklane-company-general-contractors-llc-1003357). The original is a 2810px WebP; this copy is resized to 400px PNG with transparency kept. | Used only with Rocklane's name/logo on the page; displayed 104px wide, smaller than the Rocklane logo. Never use the retired "Factory Certified Master Elite / Weather Stopper" badge. |
+
+If Rocklane later gets GAF partner-portal access, replace both files with the portal versions (same file names).

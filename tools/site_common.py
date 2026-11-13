@@ -157,9 +157,11 @@ def fn(n):
     return f'<sup class="fn-ref"><a href="#fn-{n}" aria-label="Footnote {n}">{n}</a></sup>'
 
 
-def gaf_slot():
-    """Placeholder where the official GAF Master Elite badge will go. Never draw a GAF logo."""
-    return '<div class="gaf-slot">GAF Master Elite&reg; badge &mdash; official artwork pending</div>'
+def gaf_badge():
+    """GAF's own Master Elite Residential Roofing Contractor badge (from gaf.com, Rocklane's directory listing).
+    GAF rule: keep it smaller than the Rocklane logo (logo at least 2x the badge) and never alter it."""
+    return ('<img class="gaf-badge" src="/images/brands/gaf-master-elite.png" width="400" height="400" '
+            'alt="GAF Master Elite&reg; Residential Roofing Contractor" loading="lazy">')
 
 
 GAF_CLAIM_HTML = GAF_CLAIM + fn(1)
@@ -320,7 +322,7 @@ PARTNERS = f"""    <section class="partners" aria-labelledby="pt-h">
           <div class="logo-box"><img src="/images/brands/james-hardie-logo.svg" width="193" height="40" alt="James Hardie" loading="lazy"></div>
           <div class="logo-box"><img src="/images/brands/variform-logo.svg" width="196" height="52" alt="Variform" loading="lazy"></div>
           <div class="logo-box"><img src="/images/brands/royal-siding-logo.svg" width="308" height="208" alt="Royal siding" loading="lazy"></div>
-          {gaf_slot()}
+          <div class="logo-box"><img src="/images/brands/gaf-logo.svg" width="100" height="100" alt="GAF" loading="lazy"></div>
         </div>
       </div>
     </section>"""

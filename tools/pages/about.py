@@ -67,7 +67,7 @@ CSS = """
 /* about: 04 credentials */
 .ab-creds .card { min-height: 100%; }
 .ab-creds .ab-k { display: block; font-size: .74rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--char); margin-bottom: .7rem; }
-.ab-creds .gaf-slot { margin-bottom: 22px; }
+.ab-creds .gaf-badge { margin-bottom: 22px; }
 .ab-creds .ab-names { list-style: none; margin: auto 0 0; padding: 0; }
 .ab-creds .ab-names li { display: flex; gap: 12px; align-items: center; padding: 12px 0; border-top: 1px solid var(--grey); font-weight: 700; color: var(--char); }
 .ab-creds .ab-names .i { color: var(--blue); }
@@ -179,7 +179,7 @@ BODY = f"""    <div class="page-head on-blue has-photo ab-hero">
 {sec_hd("04", "Credentials", "Certified where it counts.", "The company credential is GAF Master Elite&reg;. Individual inspection and resilience credentials belong to the owners who earned them.", "cred-h")}
         <div class="cards ab-creds">
           <article class="card reveal">
-            {gaf_slot()}
+            {gaf_badge()}
             <span class="ab-k">{SHORT}</span>
             <h3>GAF Master Elite&reg; roofing contractor</h3>
             <p>{GAF_CLAIM_HTML}.</p>

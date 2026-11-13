@@ -41,7 +41,7 @@ BODY = f"""    <section class="hero on-blue" aria-labelledby="h1">
       <div class="wrap">
         <div class="sb-head reveal">
           <div><span class="eyebrow">Why {SHORT}</span><h2 id="stats-h">Credentials that hold up on the roof.</h2></div>
-          <div class="sb-aside"><p>An owner-run contractor with a Director of Training &amp; Quality Control on staff, a written workmanship warranty and the GAF status behind GAF&rsquo;s strongest roof warranty.</p>{gaf_slot()}</div>
+          <div class="sb-aside"><p>An owner-run contractor with a Director of Training &amp; Quality Control on staff, a written workmanship warranty and the GAF status behind GAF&rsquo;s strongest roof warranty.</p>{gaf_badge()}</div>
         </div>
         <ul class="sb-grid reveal">
           <li><span class="sb-num">2%</span><span class="sb-bar"></span><p>{GAF_CLAIM_HTML}</p></li>
@@ -87,7 +87,7 @@ BODY = f"""    <section class="hero on-blue" aria-labelledby="h1">
           <article class="tier featured reveal" style="--d:.16s"><span class="ribbon">Master Elite&reg; only</span><span class="lvl">Tier 03 &middot; Strongest</span><h3>Golden Pledge&reg;</h3><p>GAF&rsquo;s strongest warranty, available only through Master Elite&reg; contractors, with up to 25&ndash;30 years of workmanship coverage on qualifying roofing systems.{fn(2)}</p></article>
         </div>
         <div class="claim reveal">
-          {gaf_slot()}
+          {gaf_badge()}
           <p>{GAF_CLAIM_HTML}<small>Footnotes appear at the bottom of this page.</small></p>
         </div>
       </div>

@@ -78,7 +78,7 @@ BODY = f"""    <div class="page-head on-blue has-photo pm-hero">
       <div class="wrap">
         <div class="sb-head reveal">
           <div><span class="eyebrow">Why boards choose {SHORT}</span><h2 id="stats-h">Credentials a board can check.</h2></div>
-          <div class="sb-aside"><p>An owner-run contractor with a Director of Training &amp; Quality Control on staff, a written workmanship warranty, and the GAF status behind GAF&rsquo;s strongest roof warranty.</p>{gaf_slot()}</div>
+          <div class="sb-aside"><p>An owner-run contractor with a Director of Training &amp; Quality Control on staff, a written workmanship warranty, and the GAF status behind GAF&rsquo;s strongest roof warranty.</p>{gaf_badge()}</div>
         </div>
         <ul class="sb-grid reveal">
           <li><span class="sb-num">100+</span><span class="sb-bar"></span><p>Completed communities and commercial properties across central Indiana</p></li>

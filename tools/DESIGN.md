@@ -25,7 +25,7 @@ Never edit `css/style.css` or `tools/site_common.py`; describe needed shared cha
 | `ic(name, cls="i")` | decorative SVG icon. Names: shield award search home layers droplet phone clipboard tool check check-circle users user pin clock mail arrow storm file alert monitor menu close building camera chat handshake |
 | `picture(name, alt, sizes="100vw", w=None, h=None, cls="", eager=False, pos=None)` | responsive `<img>` for `images/photos/<name>.jpg` with the `-1200.jpg` variant in `srcset`; real width/height filled in from `PHOTOS`; lazy unless `eager=True` (use eager only for the page's first, above-the-fold image); `alt=""` for decorative backgrounds; `pos` sets `object-position` |
 | `fn(n)` | superscript footnote marker linking to the footer (1 = GAF disclosure, 2 = GAF warranty terms) |
-| `gaf_slot()` | 200×80 dashed Light Grey placeholder "GAF Master Elite® badge — official artwork pending" |
+| `gaf_badge()` | GAF's own Master Elite® Residential Roofing Contractor badge (`/images/brands/gaf-master-elite.png`), 104px wide, unaltered |
 | `GAF_CLAIM_HTML` | `GAF_CLAIM` + `fn(1)`; the only approved 2% wording |
 | `sec_hd(num, eyebrow, title, lead="", hid=None, center=False)` | numbered section header (outlined number, eyebrow, `<h2 id=hid>`, lead) |
 | `photo_card(href, photo, alt, title, text, go, sizes, cls="", pos=None, kicker=None)` | full-bleed photo link card; the photo renders with `alt=""` (decorative inside the link, `alt` is ignored) and the link is named by its `<h3>` (`aria-labelledby`) and described by its text |
@@ -33,7 +33,7 @@ Never edit `css/style.css` or `tools/site_common.py`; describe needed shared cha
 | `warranty_band(num="", photo=..., alt=..., small=..., small_alt=...)` / `WARRANTY_BAND` | warranty split: offset photo pair, pull quote, 10/5-year figures |
 | `process(num="")` / `PROCESS` | six portal statuses on a Shark Blue photo band + portal status card + Customer Login |
 | `status_card(current=3)` | the "Your project — In progress" portal illustration on its own |
-| `PARTNERS` | Variform + James Hardie marks + `gaf_slot()` strip |
+| `PARTNERS` | Products strip: Atlas, VELUX, James Hardie, Variform, Royal siding and GAF logos in equal tiles |
 | `COMMERCIAL_SPLIT` | two `.com-card`s: Rocklane Co. exteriors / Rocklane Commercial membrane + Versico (place inside a `.wrap`; on home it follows a `.com-hero`) |
 | `service_area(num="")` / `SERVICE_AREA` | Noblesville photo band with the 15 cities and a solid caption bar |
 | `CTA` | final call-to-action (brick texture + Shark Blue card, Request an Estimate → /contact + phone) |
@@ -83,7 +83,7 @@ Content blocks
 - `.media-frame` + `.tag` — single photo with offset green block and floating tag (interior pages).
 - `.warranty-split`, `.pullquote`, `.yrs` — warranty layout. Use `warranty_band()`.
 - `.tiers`, `.tier`, `.tier .lvl`, `.tier.featured` (alias `.tier.top`), `.ribbon` — GAF warranty tiers; only Golden Pledge® is `.featured` with ribbon "Master Elite® only".
-- `.claim` — `gaf_slot()` beside `GAF_CLAIM_HTML`. `.gaf-slot` — badge placeholder.
+- `.claim` — `gaf_badge()` beside `GAF_CLAIM_HTML`. `.gaf-badge` — the Master Elite badge (keep it smaller than the Rocklane logo; GAF requires the company logo to be at least 2x the badge).
 - `.process`, `.process-bg`, `.proc-grid`, `.process-steps`, `.proc-ft` — status timeline band. Use `process()`.
 - `.status-card`, `.sc-top`, `.pill`, `.sc-track` (`li.done`, `li.now`), `.sc-feat` — portal illustration. Use `status_card()`.
 - `.com-band`, `.com-hero`, `.com-bg`, `.com-cards`, `.com-card` (`.b`, `.who`), `.ticks`, `.versico` — commercial band.
@@ -103,7 +103,7 @@ Content blocks
 - Form fields: 1.5px `#767c86` border (≥3:1 on white), Charcoal text; focus = Shark Blue ring with a transparent outline (shows as `CanvasText` in forced-colors mode).
 - Focus rings are automatic (Shark Blue on light, Lizard Green only on blue/dark bands). Don't remove outlines.
 - Customer portal links go to `/portal/` (trailing slash, no redirect). Noindex pages (`INDEX = False`) get robots noindex and no rel=canonical.
-- Logos: Rocklane lockup `/images/rocklane-co-logo.jpg` unmodified on white/Light Grey, ≥200px wide. Variform/James Hardie marks ≥140px, unmodified, on white. Versico mark only inside commercial content, directly beside the Rocklane Commercial Contractors LLC "Versico Authorized" credit. No GAF, HAAG or IBHS artwork: use `gaf_slot()` for GAF.
+- Logos: Rocklane lockup `/images/rocklane-co-logo.jpg` unmodified on white/Light Grey, ≥200px wide. Variform/James Hardie marks ≥140px, unmodified, on white. Versico mark only inside commercial content, directly beside the Rocklane Commercial Contractors LLC "Versico Authorized" credit. GAF artwork only via `gaf_badge()` and the `PARTNERS` strip (sources in `images/brands/SOURCES.md`); never the retired Weather Stopper badge, never the GAF tagline. No HAAG or IBHS artwork.
 
 ## Claims and wording (binding)
 
