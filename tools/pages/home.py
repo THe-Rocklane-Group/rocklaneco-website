@@ -41,7 +41,7 @@ BODY = f"""    <section class="hero on-blue" aria-labelledby="h1">
       <div class="wrap">
         <div class="sb-head reveal">
           <div><span class="eyebrow">Why {SHORT}</span><h2 id="stats-h">Credentials that hold up on the roof.</h2></div>
-          <div class="sb-aside"><p>An owner-run contractor with a Director of Training &amp; Quality Control on staff, a written workmanship warranty and the GAF status behind GAF&rsquo;s strongest roof warranty.</p>{gaf_badge()}</div>
+          <div class="sb-aside"><p>An owner-run contractor with a Director of Training &amp; Quality Control on staff, a written workmanship warranty and the GAF status behind GAF&rsquo;s strongest roof warranty, plus GAF&rsquo;s President&rsquo;s Club Award.</p>{gaf_awards()}</div>
         </div>
         <ul class="sb-grid reveal">
           <li><span class="sb-num">2%</span><span class="sb-bar"></span><p>{GAF_CLAIM_HTML}</p></li>

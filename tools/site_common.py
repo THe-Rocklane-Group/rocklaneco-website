@@ -164,7 +164,23 @@ def gaf_badge():
             'alt="GAF Master Elite&reg; Residential Roofing Contractor" loading="lazy">')
 
 
+def gaf_presidents_club():
+    """GAF's President's Club award badge (from gaf.com, Rocklane's directory listing). No year is claimed:
+    GAF's listing shows the award without one. Same size rule as the Master Elite badge."""
+    return ('<img class="gaf-badge" src="/images/brands/gaf-presidents-club.png" width="400" height="400" '
+            'alt="GAF President&rsquo;s Club Award" loading="lazy">')
+
+
+def gaf_awards():
+    """Master Elite badge and President's Club badge side by side."""
+    return f'<div class="gaf-awards">{gaf_badge()}{gaf_presidents_club()}</div>'
+
+
 GAF_CLAIM_HTML = GAF_CLAIM + fn(1)
+# Paraphrases GAF's own description on Rocklane's gaf.com listing; GAF marks that description with the same
+# independent-contractor footnote, so it carries footnote 1.
+PRESIDENTS_CLUB_HTML = ("GAF President&rsquo;s Club Award: GAF gives President&rsquo;s Club status to a select few "
+                        "Master Elite&reg; contractors for excellence in performance, reliability and service" + fn(1))
 
 
 # ---------------------------------------------------------------- section helpers

@@ -26,6 +26,7 @@ Never edit `css/style.css` or `tools/site_common.py`; describe needed shared cha
 | `picture(name, alt, sizes="100vw", w=None, h=None, cls="", eager=False, pos=None)` | responsive `<img>` for `images/photos/<name>.jpg` with the `-1200.jpg` variant in `srcset`; real width/height filled in from `PHOTOS`; lazy unless `eager=True` (use eager only for the page's first, above-the-fold image); `alt=""` for decorative backgrounds; `pos` sets `object-position` |
 | `fn(n)` | superscript footnote marker linking to the footer (1 = GAF disclosure, 2 = GAF warranty terms) |
 | `gaf_badge()` | GAF's own Master Elite® Residential Roofing Contractor badge (`/images/brands/gaf-master-elite.png`), 104px wide, unaltered |
+| `gaf_presidents_club()` / `gaf_awards()` | GAF President's Club Award badge; `gaf_awards()` shows it beside the Master Elite badge (`.gaf-awards`). Pair with `PRESIDENTS_CLUB_HTML` where the award is described. No award year. |
 | `GAF_CLAIM_HTML` | `GAF_CLAIM` + `fn(1)`; the only approved 2% wording |
 | `sec_hd(num, eyebrow, title, lead="", hid=None, center=False)` | numbered section header (outlined number, eyebrow, `<h2 id=hid>`, lead) |
 | `photo_card(href, photo, alt, title, text, go, sizes, cls="", pos=None, kicker=None)` | full-bleed photo link card; the photo renders with `alt=""` (decorative inside the link, `alt` is ignored) and the link is named by its `<h3>` (`aria-labelledby`) and described by its text |

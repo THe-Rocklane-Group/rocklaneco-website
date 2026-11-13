@@ -213,7 +213,7 @@ BODY = f"""    <section class="hero on-blue rf-hero" aria-labelledby="h1">
           <article class="tier featured reveal" style="--d:.16s"><span class="ribbon">Master Elite&reg; only</span><span class="lvl">Tier 03 &middot; Strongest</span><h3>Golden Pledge&reg;</h3><p>GAF&rsquo;s strongest warranty, available only through Master Elite&reg; contractors, with up to 25&ndash;30 years of workmanship coverage on qualifying roofing systems.{fn(2)}</p></article>
         </div>
         <div class="rf-tier-ft reveal">
-          {gaf_badge()}
+          {gaf_awards()}
           <p class="fine">Enhanced warranties require a qualifying GAF roofing system. Complete coverage and restrictions are in the footnotes at the bottom of this page.</p>
         </div>
       </div>
